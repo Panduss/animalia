@@ -1,0 +1,7 @@
+{
+  "name": "animalia",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
