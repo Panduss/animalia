@@ -1,11 +1,15 @@
-<ion-content fullscreen>
+<ion-content padding fullscreen>
     <custom-card *ngIf="animal">
         <img class="animal-image" *ngIf="animal.getImage()" [src]="animal.getImage()"/>
-        <div>
-            <h2 class="card-title">{{ animal.getCommonName() }}</h2>
-            <h3 class="card-title">{{ animal.getScientificName() }}</h3>
-            <h4 class="card-title">{{ animal.getDescription() }}</h4>
-            <ion-button (click)="reloadPage()">Random animal checker</ion-button>
+        <div class="card-body">
+            <div class="card-title-container">
+                <h3 class="card-title">{{ animal.getCommonName() }}</h3>
+                <h4 class="card-subtitle">{{ animal.getScientificName() }}</h4>
+            </div>
+            <div class="card-description-container">
+                <h5 class="card-description">{{ animal.getDescription() }}</h5>
+                <ion-button color="secondary" (click)="reloadPage()">Random animal checker</ion-button>
+            </div>
         </div>
     </custom-card>
 </ion-content>
