@@ -1,15 +1,30 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AnimalResolver } from './infrastructure/animal/resolver';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'random-animal'
+    },
+    {
+        path: 'random-animal',
+        loadChildren: './modules/pages/randomAnimal#RandomAnimalModule',
+        resolve: {
+            animal: AnimalResolver
+        },
+        runGuardsAndResolvers: 'always'
+    },
+    {
+        path: 'animal-details',
+        loadChildren: './modules/pages/animalDetails#AnimalDetailsModule'
+    }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {  onSameUrlNavigation: 'reload' }),
+      AnimalResolver
   ],
   exports: [RouterModule]
 })

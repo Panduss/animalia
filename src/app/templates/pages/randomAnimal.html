@@ -1,0 +1,11 @@
+<ion-content fullscreen>
+    <ion-card *ngIf="animal">
+        <img *ngIf="animal.getImage()" [src]="animal.getImage()"/>
+        <div>
+            <h2 class="card-title">{{ animal.getCommonName() }}</h2>
+            <h3 class="card-title">{{ animal.getScientificName() }}</h3>
+            <h4 class="card-title">{{ animal.getDescription() }}</h4>
+            <ion-button (click)="getNewAnimal()">Random animal checker</ion-button>
+        </div>
+    </ion-card>
+</ion-content>

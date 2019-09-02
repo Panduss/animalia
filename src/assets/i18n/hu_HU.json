@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "randomAnimal": {
+      "header": "Véletlenszerű Állat"
+    },
+    "animalDetails": {
+      "header": "Részletsebben: {{ animalName }}"
+    }
+  }
+}

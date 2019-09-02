@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "randomAnimal": {
+      "header": "Random Animal"
+    },
+    "animalDetails": {
+      "header": "More on: {{ animalName }}"
+    }
+  }
+}
