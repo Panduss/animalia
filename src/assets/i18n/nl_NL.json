@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "randomAnimal": {
+      "header": "Willekeurig dier"
+    },
+    "animalDetails": {
+      "header": "Meer of: {{ animalName }}"
+    }
+  }
+}
