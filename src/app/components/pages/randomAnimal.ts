@@ -25,6 +25,7 @@ class RandomAnimal implements OnInit, OnDestroy {
     private detectorRef: ChangeDetectorRef
   ) {
     this.animal = this.route.snapshot.data.animal.first();
+    console.log(this.animal);
   }
 
   public ngOnInit() {

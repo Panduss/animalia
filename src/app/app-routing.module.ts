@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import { AnimalResolver } from './infrastructure/animal/resolver';
 
 const routes: Routes = [
@@ -23,7 +23,11 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {  onSameUrlNavigation: 'reload' }),
+    RouterModule.forRoot(routes,
+        {
+            preloadingStrategy: PreloadAllModules,
+            onSameUrlNavigation: 'reload'
+        }),
       AnimalResolver
   ],
   exports: [RouterModule]
