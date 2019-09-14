@@ -17,7 +17,7 @@ const routes: Routes = [
         runGuardsAndResolvers: 'always'
     },
     {
-        path: 'animal-details',
+        path: 'animal-details/:id',
         loadChildren: './modules/pages/animalDetails#AnimalDetailsModule'
     }
 ];

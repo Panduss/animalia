@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
 import {ReadService} from '../contracts/services/read';
 import {AnimalPrototype, WikipageResponsePrototype, WikiResponsePrototype} from './prototype';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Collection} from '../collection/collection';
-import {AppCustomConfig} from '../../../config/general';
 import * as animalsDb from '../../domain/animal/animalsDb.json';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 class Service implements ReadService<AnimalPrototype> {
@@ -41,7 +41,7 @@ class Service implements ReadService<AnimalPrototype> {
 
     private getAnimalDataFromWikipedia(query: string): Observable<Collection<AnimalPrototype>> {
         return this.http.get<WikiResponsePrototype>(
-            `${AppCustomConfig.wikipedia.baseUrl}${query}${AppCustomConfig.wikipedia.getThumbnail}`
+            `${environment.wikipedia.baseUrl}${query}${environment.wikipedia.getThumbnail}`
         ).map(Collection.of).map(
             (wikiResponse: Collection<WikiResponsePrototype>) => {
 
@@ -77,7 +77,7 @@ class Service implements ReadService<AnimalPrototype> {
         );
     }
 
-    private getRandomAnimal(): AnimalPrototype {
+    public getRandomAnimal(): AnimalPrototype {
         return this.animals[Math.floor(Math.random() * this.animals.length)];
     }
 }
