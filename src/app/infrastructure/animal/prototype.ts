@@ -1,8 +1,8 @@
 interface Prototype {
-  commonName: string;
-  scientificName: string;
-  description?: string;
-  image?: string;
+    commonName: string;
+    scientificName: string;
+    description?: string;
+    image?: string;
 }
 
 export { Prototype as AnimalPrototype };

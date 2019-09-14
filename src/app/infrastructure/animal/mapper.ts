@@ -6,24 +6,24 @@ import { AnimalPrototype } from './prototype';
 
 @Injectable()
 @NgModule({
-  providers: [
-    AnimalValidator
-  ]
+    providers: [
+        AnimalValidator
+    ]
 })
 class Mapper extends MapperInterface<Animal, AnimalPrototype> {
-  public constructor(validator: AnimalValidator) {
-  super(validator);
-  }
+    public constructor(validator: AnimalValidator) {
+        super(validator);
+    }
 
-  protected map(data: AnimalPrototype): Animal {
+    protected map(data: AnimalPrototype): Animal {
 
-    return new Animal(
-      data.commonName,
-      data.scientificName,
-      data.description,
-      data.image
-    );
-  }
+        return new Animal(
+            data.commonName,
+            data.scientificName,
+            data.description,
+            data.image
+        );
+    }
 }
 
 export { Mapper as AnimalMapper };
