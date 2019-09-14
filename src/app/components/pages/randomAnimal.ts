@@ -61,13 +61,11 @@ class RandomAnimal implements OnInit, OnDestroy {
         const animalToBeSaved = this.animal;
 
         if (animalToBeSaved && animalToBeSaved.getImage()) {
-
-            console.log('correct ran');
             this.addAnimalDataAsCorrect(animalToBeSaved);
-        } else {
 
-            console.log('incorrect ran');
+        } else {
             this.addAnimalDataAsIncorrect(animalToBeSaved);
+
         }
     }
 
@@ -80,12 +78,20 @@ class RandomAnimal implements OnInit, OnDestroy {
             (docSnapshot) => {
 
                 if (docSnapshot.exists) {
-                    this.toast.presentToastWithOptions(`${animal.getCommonName()} already exist in database`, 100000, 'warning-toast');
+                    this.toast.presentToastWithOptions(
+                        `${animal.getCommonName()} already exist (as CORRECT data) in database`,
+                        100000,
+                        'warning-toast'
+                    );
 
                 } else {
                     this.afs.collection('animals').doc(id).set(Object.assign({}, animal)).then(
                         () => {
-                            this.toast.presentToastWithOptions(`${animal.getCommonName()} added to database`, 3000, 'success-toast');
+                            this.toast.presentToastWithOptions(
+                                `${animal.getCommonName()} added (as CORRECT data) to database`,
+                                3000,
+                                'success-toast'
+                            );
                         }
                     );
                 }
@@ -109,12 +115,20 @@ class RandomAnimal implements OnInit, OnDestroy {
             (docSnapshot) => {
 
                 if (docSnapshot.exists) {
-                    this.toast.presentToastWithOptions(`${animal.getCommonName()} already exist in database`, 100000, 'warning-toast');
+                    this.toast.presentToastWithOptions(
+                        `${animal.getCommonName()} already exist (as INCORRECT data) in database`,
+                        100000,
+                        'warning-toast'
+                    );
 
                 } else {
                     this.afs.collection('incorrectAnimals').doc(id).set(Object.assign({}, newIncorrectAnimal)).then(
                         () => {
-                            this.toast.presentToastWithOptions(`${animal.getCommonName()} added to database`, 3000, 'success-toast');
+                            this.toast.presentToastWithOptions(
+                                `${animal.getCommonName()} added (as INCORRECT data) to database`,
+                                3000,
+                                'success-toast'
+                            );
                         }
                     );
                 }

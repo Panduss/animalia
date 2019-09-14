@@ -11,7 +11,7 @@ import { MenuModule } from './modules/components/menu';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslationFactory } from './factory/translation';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { ToastProvider } from './infrastructure/providers/toast';
 import { environment } from '../environments/environment';
 
@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
         BrowserModule,
         IonicModule.forRoot(),
         AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
         AppRoutingModule,
         HttpClientModule,
         MenuModule,
