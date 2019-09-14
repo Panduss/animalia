@@ -1,10 +1,12 @@
-<div class="text-center">
-    <ion-card class="card align-self-center">
-        <div class="card-img-top">
-            <ng-content select="img"></ng-content>
-        </div>
-        <div class="card-body">
-            <ng-content select="div"></ng-content>
-        </div>
-    </ion-card>
-</div>
+<ion-card class="text-center custom-card align-self-center">
+    <div>
+        <ng-content select="[id=customCardHeader]"></ng-content>
+    </div>
+    <div class="ion-padding">
+        <ng-content select="[id=customCardTitle]"></ng-content>
+        <ng-content select="[id=customCardDescription]"></ng-content>
+    </div>
+    <div class="ion-padding">
+        <ng-content select="[id=customCardFooter]"></ng-content>
+    </div>
+</ion-card>

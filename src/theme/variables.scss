@@ -4,12 +4,13 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #607D8B;
-  --ion-color-primary-rgb: 96, 125, 139;
+  //--ion-color-primary: #607D8B;
+  --ion-color-primary: #5d4037;
+  --ion-color-primary-rgb: 93, 64, 55;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #456270;
-  --ion-color-primary-tint: #6a8896;
+  --ion-color-primary-shade: #47342c;
+  --ion-color-primary-tint: #765046;
 
   /** secondary **/
   --ion-color-secondary: #CDDC39;
@@ -79,10 +80,30 @@
   // ** ION CONTENT ** //
 
   ion-content {
-    --background: #dee7eb;
+    --background: url('../assets/imgs/background.jpeg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  ion-toolbar {
+    max-height: 10%;
+    --background: rgba(0, 0, 0, 0);
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    --border-bottom-color: black;
+    --border-bottom-width: 1px;
   }
 
   // ** CARD ** //
+
+  ion-card {
+    --background: rgba(var(--ion-color-light-rgb), 0.5);
+    border-radius: 0;
+    color: var(--ion-color-dark-font);
+  }
 
   .image {
     position: relative;
@@ -96,57 +117,12 @@
     width: 100%;
   }
 
-  .card-body {
-    padding: 0;
-    margin: 0;
-  }
-
-  .card-img-top {
-    width: 100%;
-    background: var(--ion-color-primary);
-  }
-
   // ** RANDOM ANIMAL PAGE ** //
 
   .animal-image {
     max-width: 300px;
     max-height: 300px;
     margin: auto;
-  }
-
-  .card-body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .card-title-container {
-    width: 100%;
-    background: var(--ion-color-primary);
-    padding: 10px 0 10px;
-
-    .card-title {
-      color: #ffffff;
-    }
-
-    .card-subtitle {
-      color: #ffffff;
-    }
-  }
-
-  .card-description-container {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .card-title {
-    padding: 0;
-    margin: 0;
-  }
-
-  .card-subtitle {
-    padding: 0;
-    margin: 0;
   }
 
   ion-toast.warning-toast {

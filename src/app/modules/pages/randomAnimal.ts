@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { HeaderModule } from '../components/header';
 
 const routes: Routes = [
     {
@@ -18,7 +19,8 @@ const routes: Routes = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        CardModule
+        CardModule,
+        HeaderModule
     ],
     providers: [
         AngularFirestore

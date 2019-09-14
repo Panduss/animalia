@@ -1,8 +1,26 @@
-.tab-icon {
-  font-size: 1rem;
-  padding: 3px;
+.active-item {
+  border-left: 8px solid var(--ion-color-primary);
+  --color-hover: var(--ion-color-light);
+  --color-activated: opacity(.0);
 }
 
-.tab-label {
-  max-width: none;
+.inactive-item {
+  border-left: 8px solid var(--ion-color-light);
+  --color-hover: var(--ion-color-light);
+  --color-activated: opacity(.0);
+}
+
+.menu-item {
+  --background: var(--ion-color-light);
+  color: var(--ion-color-light-font);
+  --color-hover: var(--ion-color-light-font);
+}
+
+.menu-content {
+  --background: var(--ion-color-light);
+}
+
+.menu-list {
+  background: var(--ion-color-light);
+  height: 100%;
 }

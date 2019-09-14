@@ -1,19 +1,19 @@
+<custom-header></custom-header>
 <ion-content padding fullscreen>
     <custom-card *ngIf="animal">
-        <img class="animal-image" *ngIf="animal.getImage()" [src]="animal.getImage()"/>
-        <div class="card-body">
-            <div class="card-title-container">
-                <h3 class="card-title">{{ animal.getCommonName() }}</h3>
-                <h4 class="card-subtitle">{{ animal.getScientificName() }}</h4>
-            </div>
-            <div class="card-description-container">
-                <h5 class="card-description">{{ animal.getDescription() }}</h5>
-            </div>
-            <div>
-                <ion-button color="primary" (click)="getNewAnimal()">Show me another one!</ion-button>
-                <h5>If you see that something is wrong with the data you see, please report it clicking on the button below!</h5>
-                <ion-button color="warning" (click)="reportData(animal)">Report</ion-button>
-            </div>
+        <div id="customCardHeader">
+            <img class="animal-image" *ngIf="animal.getImage()" [src]="animal.getImage()"/>
         </div>
+        <div id="customCardTitle">
+            <h3 class="ion-no-padding">{{ animal.getCommonName() }}</h3>
+            <h4 class="ion-no-padding">{{ animal.getScientificName() }}</h4>
+        </div>
+        <div id="customCardDescription">
+            <h5>{{ animal.getDescription() }}</h5>
+        </div>
+        <span id="customCardFooter">
+            <ion-button color="secondary" (click)="getNewAnimal()">Show me another one!</ion-button>
+            <ion-button color="warning" title="Hello World!" (click)="reportData(animal)">Report</ion-button>
+        </span>
     </custom-card>
 </ion-content>
