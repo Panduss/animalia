@@ -136,6 +136,35 @@ class RandomAnimal implements OnInit, OnDestroy {
         );
     }
 
+    public reportData(animal: Animal): void {
+        const id = animal.getCommonName().split(' ').join('_');
+        const animalRef = this.afs.collection('weirdData').doc(id);
+
+        animalRef.get().toPromise().then(
+            (docSnapshot) => {
+
+                if (docSnapshot.exists) {
+                    this.toast.presentToastWithOptions(
+                        `${animal.getCommonName()} is already added. Thanks for reporting it tho!`,
+                        3000,
+                        'warning-toast'
+                    );
+
+                } else {
+                    this.afs.collection('weirdData').doc(id).set(Object.assign({}, animal)).then(
+                        () => {
+                            this.toast.presentToastWithOptions(
+                                `${animal.getCommonName()} is added. Thanks for reporting!`,
+                                3000,
+                                'success-toast'
+                            );
+                        }
+                    );
+                }
+            }
+        );
+    }
+
     public getNewAnimal(): void {
         this.router.navigate([`/random-animal`]);
     }
