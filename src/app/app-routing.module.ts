@@ -17,14 +17,6 @@ const routes: Routes = [
         runGuardsAndResolvers: 'always'
     },
     {
-        path: 'random-animal/:id',
-        loadChildren: './modules/pages/randomAnimal#RandomAnimalModule',
-        resolve: {
-            animal: AnimalResolver
-        },
-        runGuardsAndResolvers: 'always'
-    },
-    {
         path: 'animal-details/:id',
         loadChildren: './modules/pages/animalDetails#AnimalDetailsModule'
     }
