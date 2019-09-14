@@ -3,10 +3,10 @@ import { Subscription } from 'rxjs';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import { Animal } from '../../domain/animal/model';
 import { AnimalService } from '../../infrastructure/animal/service';
-import {Collection} from '../../infrastructure/collection/collection';
+import { Collection } from '../../infrastructure/collection/collection';
 import { AnimalPrototype } from '../../infrastructure/animal/prototype';
 import { AnimalMapper } from '../../infrastructure/animal/mapper';
-import {AngularFirestore} from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastProvider } from '../../infrastructure/providers/toast';
 
 @Component({
