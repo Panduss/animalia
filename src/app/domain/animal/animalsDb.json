@@ -1198,7 +1198,7 @@
         "scientificName": "Spizaetus coronatus"
       },
       {
-        "commonName": "Crowned hawk-eagle",
+        "commonName": "Crowned eagle",
         "scientificName": "Spizaetus coronatus"
       },
       {
@@ -1528,7 +1528,7 @@
         "scientificName": "Vulpes cinereoargenteus"
       },
       {
-        "commonName": "Eastern American red fox",
+        "commonName": "American red fox",
         "scientificName": "Vulpes vulpes fulvus"
       },
       {
@@ -1630,7 +1630,7 @@
         "scientificName": "Cordylus giganteus"
       },
       {
-        "commonName": "Giant heron",
+        "commonName": "Goliath heron",
         "scientificName": "Ardea golieth"
       },
       {
@@ -1756,10 +1756,6 @@
       {
         "commonName": "Emerald tree monitor",
         "scientificName": "Varanus prasinus"
-      },
-      {
-        "commonName": "Canopy goanna",
-        "scientificName": "Varanus keithhornei"
       },
       {
         "commonName": "Mountain goat",
@@ -2258,10 +2254,6 @@
       {
         "commonName": "Eastern long-necked turtle",
         "scientificName": "Chelodina longicollis"
-      },
-      {
-        "commonName": "Long-tailed skua",
-        "scientificName": "Stercorarius longicausus"
       },
       {
         "commonName": "Scaly-breasted lorikeet",
@@ -3065,7 +3057,7 @@
       "scientificName": "Taxidea taxus"
     },
     {
-      "commonName": "North american beaver",
+      "commonName": "North American beaver",
       "scientificName": "Castor canadensis"
     },
     {
@@ -4169,7 +4161,7 @@
       "scientificName": "Spizaetus coronatus"
     },
     {
-      "commonName": "Crowned hawk-eagle",
+      "commonName": "Crowned eagle",
       "scientificName": "Spizaetus coronatus"
     },
     {
@@ -4493,7 +4485,7 @@
       "scientificName": "Vulpes cinereoargenteus"
     },
     {
-      "commonName": "Eastern American red fox",
+      "commonName": "American red fox",
       "scientificName": "Vulpes vulpes fulvus"
     },
     {
@@ -4589,7 +4581,7 @@
       "scientificName": "Cordylus giganteus"
     },
     {
-      "commonName": "Giant heron",
+      "commonName": "Goliath heron",
       "scientificName": "Ardea golieth"
     },
     {
@@ -4715,10 +4707,6 @@
     {
       "commonName": "Emerald tree monitor",
       "scientificName": "Varanus prasinus"
-    },
-    {
-      "commonName": "Canopy goanna",
-      "scientificName": "Varanus keithhornei"
     },
     {
       "commonName": "Mountain goat",
@@ -5207,10 +5195,6 @@
     {
       "commonName": "Eastern long-necked turtle",
       "scientificName": "Chelodina longicollis"
-    },
-    {
-      "commonName": "Long-tailed skua",
-      "scientificName": "Stercorarius longicausus"
     },
     {
       "commonName": "Scaly-breasted lorikeet",
