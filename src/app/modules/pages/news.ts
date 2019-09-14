@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnimalDetailsPage } from 'src/app/components/pages/animalDetails';
+import { NewsPage } from 'src/app/components/pages/news';
 import { RouterModule, Routes } from '@angular/router';
 import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
+import { HeaderModule } from '../components/header';
 
 const routes: Routes = [
     {
         path: '',
-        component: AnimalDetailsPage
+        component: NewsPage
     }
 ];
 
@@ -17,15 +18,16 @@ const routes: Routes = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        CardModule
+        CardModule,
+        HeaderModule
     ],
     declarations: [
-        AnimalDetailsPage
+        NewsPage
     ],
     exports: [
-        AnimalDetailsPage
+        NewsPage
     ]
 })
-export class AnimalDetailsModule {
+export class NewsModule {
 }
 
