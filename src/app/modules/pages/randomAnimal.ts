@@ -4,6 +4,7 @@ import {RandomAnimalPage} from 'src/app/components/pages/randomAnimal';
 import {RouterModule, Routes} from '@angular/router';
 import {CardModule} from '../components/card';
 import {IonicModule} from '@ionic/angular';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 const routes: Routes = [
     {
@@ -18,6 +19,9 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         CardModule
+    ],
+    providers: [
+        AngularFirestore
     ],
     declarations: [
         RandomAnimalPage

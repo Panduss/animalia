@@ -1,11 +1,13 @@
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import { Animal } from '../../domain/animal/model';
 import { AnimalService } from '../../infrastructure/animal/service';
+import {Collection} from '../../infrastructure/collection/collection';
 import { AnimalPrototype } from '../../infrastructure/animal/prototype';
-import { Collection } from '../../infrastructure/collection/collection';
-import { ChangeDetectorRef } from '@angular/core';
+import { AnimalMapper } from '../../infrastructure/animal/mapper';
+import {AngularFirestore} from '@angular/fire/firestore';
+import { ToastProvider } from '../../infrastructure/providers/toast';
 
 @Component({
   selector: 'app-animal-random',
@@ -21,36 +23,84 @@ class RandomAnimal implements OnInit, OnDestroy {
     private zone: NgZone,
     private route: ActivatedRoute,
     private router: Router,
-    private animalService: AnimalService,
-    private detectorRef: ChangeDetectorRef
+    private service: AnimalService,
+    private mapper: AnimalMapper,
+    private afs: AngularFirestore,
+    private toast: ToastProvider
   ) {
     this.animal = this.route.snapshot.data.animal.first();
-    console.log(this.animal);
   }
 
   public ngOnInit() {
-    // this.getNewAnimal().subscribe(
-    //   (animal: Collection<AnimalPrototype>) => {
-    //     this.zone.run(() => {
-    //       console.log('new animal', animal);
-    //       this.animal = animal as Animal;
-    //       this.detectorRef.detectChanges();
-    //     });
-    //   });
+      this.dataSubscription = this.router.events.subscribe((e: any) => {
+          if (e instanceof NavigationEnd) {
+              this.service.retrieve().subscribe(
+                  (animal: Collection<AnimalPrototype>) => {
+                      const animalCollection = animal.convert<Animal>(this.mapper.instance.bind(this.mapper));
+
+                      const result = animalCollection.first();
+
+                      if (result) {
+                          this.animal = result;
+                      }
+                  }
+              );
+          }
+      });
   }
 
   public ngOnDestroy() {
-    this.dataSubscription.unsubscribe();
+      if (this.dataSubscription) {
+          this.dataSubscription.unsubscribe();
+      }
   }
 
-  public reloadPage(): void {
-    // this.router.navigate(['/random-animal']);
-    location.reload(true);
+  public addAnimalDataAsCorrect(animal: Animal): void {
+      const id = animal.getCommonName().split(' ').join('_');
+      const animalRef = this.afs.collection('animals').doc(id);
+      animalRef.get().toPromise().then(
+          (docSnapshot) => {
+              if (docSnapshot.exists) {
+                  this.toast.presentToastWithOptions(`${animal.getCommonName()} already exist in database`, 100000, 'warning-toast');
+                  this.router.navigate([`/random-animal`]);
+              } else {
+                  this.afs.collection('animals').doc(id).set(Object.assign({}, animal)).then(
+                      () => {
+                          this.toast.presentToastWithOptions(`${animal.getCommonName()} added to database`, 3000, 'success-toast');
+                      }
+                  );
+                  this.router.navigate([`/random-animal`]);
+              }
+          }
+      );
   }
 
-  public getNewAnimal(): Observable<Collection<AnimalPrototype>> {
-    console.log('helo');
-    return this.animalService.returnRandomAnimal();
+  public addAnimalDataAsIncorrect(animal: Animal): void {
+      const id = animal.getCommonName().split(' ').join('_');
+      const animalRef = this.afs.collection('incorrectAnimals').doc(id);
+
+      const newIncorrectAnimal = {
+          commonName: this.animal.getCommonName(),
+          scientificName: this.animal.getScientificName(),
+          description: null,
+          image: null
+      };
+
+      animalRef.get().toPromise().then(
+          (docSnapshot) => {
+              if (docSnapshot.exists) {
+                  this.toast.presentToastWithOptions(`${animal.getCommonName()} already exist in database`, 100000, 'warning-toast');
+                  this.router.navigate([`/random-animal`]);
+              } else {
+                  this.afs.collection('incorrectAnimals').doc(id).set(Object.assign({}, newIncorrectAnimal)).then(
+                      () => {
+                          this.toast.presentToastWithOptions(`${animal.getCommonName()} added to database`, 3000, 'success-toast');
+                      }
+                  );
+                  this.router.navigate([`/random-animal`]);
+              }
+          }
+      );
   }
 }
 
