@@ -19,7 +19,7 @@ abstract class Resolver<T, P, M extends MapperInterface<T, P>, S extends ReadSer
         return this.resolveObjects(route.params.id);
     }
 
-    public resolveObjects(id?: string|number): Observable<Collection<T>> {
+    public resolveObjects(id?: string | number): Observable<Collection<T>> {
         return this.service
             .retrieve(id)
             .map((collection: Collection<P>) => {

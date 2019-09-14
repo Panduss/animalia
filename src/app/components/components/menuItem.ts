@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
 })
 class MenuItem {
 
-    @Input() public tabName: string = '';
-    @Input() public tabIcon: string = '';
-    @Input() public tabText: string = '';
+    @Input() public tabName = '';
+    @Input() public tabIcon = '';
+    @Input() public tabText = '';
 }
 
 export { MenuItem as MenuItemComponent };

@@ -1,11 +1,11 @@
-import {Injectable, OnDestroy, OnInit} from '@angular/core';
-import {ReadService} from '../contracts/services/read';
-import {AnimalPrototype, WikipageResponsePrototype, WikiResponsePrototype} from './prototype';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Collection} from '../collection/collection';
+import { Injectable } from '@angular/core';
+import { ReadService } from '../contracts/services/read';
+import { AnimalPrototype, WikipageResponsePrototype, WikiResponsePrototype } from './prototype';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Collection } from '../collection/collection';
 import * as animalsDb from '../../domain/animal/animalsDb.json';
-import {environment} from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 class Service implements ReadService<AnimalPrototype> {
@@ -32,6 +32,10 @@ class Service implements ReadService<AnimalPrototype> {
         this.animal = this.getRandomAnimal();
         const query = `titles=${this.animal.commonName.split(' ').join('_')}`;
         return this.getAnimalDataFromWikipedia(query);
+    }
+
+    public getRandomAnimal(): AnimalPrototype {
+        return this.animals[Math.floor(Math.random() * this.animals.length)];
     }
 
     private returnOneAnimal(name: string): Observable<Collection<AnimalPrototype>> {
@@ -76,10 +80,6 @@ class Service implements ReadService<AnimalPrototype> {
             }
         );
     }
-
-    public getRandomAnimal(): AnimalPrototype {
-        return this.animals[Math.floor(Math.random() * this.animals.length)];
-    }
 }
 
-export {Service as AnimalService};
+export { Service as AnimalService };

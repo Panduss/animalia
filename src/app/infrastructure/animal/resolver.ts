@@ -7,20 +7,20 @@ import { AnimalService } from './service';
 
 @Injectable()
 @NgModule({
-  imports: [
-    AnimalMapper
-  ],
-  providers: [
-    AnimalService
-  ]
+    imports: [
+        AnimalMapper
+    ],
+    providers: [
+        AnimalService
+    ]
 })
 class Resolver extends ModelResolver <Animal, AnimalPrototype, AnimalMapper, AnimalService> {
-  public constructor(
-    service: AnimalService,
-    mapper: AnimalMapper
-  ) {
-    super(service, mapper);
-  }
+    public constructor(
+        service: AnimalService,
+        mapper: AnimalMapper
+    ) {
+        super(service, mapper);
+    }
 }
 
 export { Resolver as AnimalResolver };

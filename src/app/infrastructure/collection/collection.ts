@@ -5,16 +5,16 @@ export class Collection<T> {
 
     private items: T[] = [];
 
-    public static of<T>(items: T[]|T) {
+    public constructor(items: T[]) {
+        this.items = items;
+    }
+
+    public static of<T>(items: T[] | T) {
         if (!Array.isArray(items)) {
             items = [items];
         }
 
         return new Collection<T>(items);
-    }
-
-    public constructor(items: T[]) {
-        this.items = items;
     }
 
     public isEmpty(): boolean {
@@ -33,13 +33,13 @@ export class Collection<T> {
         return this.items;
     }
 
-    public each(callback: (item: T) => T|void): void {
+    public each(callback: (item: T) => T | void): void {
         for (const item of this.items) {
             callback(item);
         }
     }
 
-    public first(): T|null {
+    public first(): T | null {
         for (const item of this.items) {
             return item;
         }
