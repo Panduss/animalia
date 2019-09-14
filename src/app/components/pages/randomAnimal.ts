@@ -80,7 +80,7 @@ class RandomAnimal implements OnInit, OnDestroy {
                 if (docSnapshot.exists) {
                     this.toast.presentToastWithOptions(
                         `${animal.getCommonName()} already exist (as CORRECT data) in database`,
-                        100000,
+                        3000,
                         'warning-toast'
                     );
 
@@ -117,7 +117,7 @@ class RandomAnimal implements OnInit, OnDestroy {
                 if (docSnapshot.exists) {
                     this.toast.presentToastWithOptions(
                         `${animal.getCommonName()} already exist (as INCORRECT data) in database`,
-                        100000,
+                        3000,
                         'warning-toast'
                     );
 
