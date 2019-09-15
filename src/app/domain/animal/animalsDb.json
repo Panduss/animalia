@@ -214,8 +214,8 @@
         "scientificName": "Manouria emys"
       },
       {
-        "commonName": "Asian lion",
-        "scientificName": "Panthera leo persica"
+        "commonName": "Asiatic lion",
+        "scientificName": "Panthera leo leo"
       },
       {
         "commonName": "Asian openbill",
@@ -256,10 +256,6 @@
       {
         "commonName": "Pied avocet",
         "scientificName": "Recurvirostra avosetta"
-      },
-      {
-        "commonName": "Azara's zorro",
-        "scientificName": "Pseudalopex gymnocercus"
       }
     ],
     "B-letter": [
@@ -396,7 +392,7 @@
         "scientificName": "Macropus rufogriseus"
       },
       {
-        "commonName": "Brush-tailed bettong",
+        "commonName": "Woylie",
         "scientificName": "Bettongia penicillata"
       },
       {
@@ -420,7 +416,7 @@
         "scientificName": "Colobus guerza"
       },
       {
-        "commonName": "Black curlew",
+        "commonName": "Blackish oystercatcher",
         "scientificName": "Haematopus ater"
       },
       {
@@ -458,10 +454,6 @@
       {
         "commonName": "Black-capped chickadee",
         "scientificName": "Parus atricapillus"
-      },
-      {
-        "commonName": "Black-cheeked waxbill",
-        "scientificName": "Estrilda erythronotos"
       },
       {
         "commonName": "Black crowned crane",
@@ -533,7 +525,7 @@
         "scientificName": "Damaliscus pygargus phillipsi"
       },
       {
-        "commonName": "Red-cheeked cordon bleu",
+        "commonName": "Red-cheeked cordon-bleu",
         "scientificName": "Uraeginthus bengalus"
       },
       {
@@ -601,10 +593,6 @@
         "scientificName": "Acrantophis madagascariensis"
       },
       {
-        "commonName": "Mexican boa",
-        "scientificName": "Boa constrictor mexicana"
-      },
-      {
         "commonName": "Wild boar",
         "scientificName": "Sus scrofa"
       },
@@ -633,7 +621,7 @@
         "scientificName": "Sula dactylatra"
       },
       {
-        "commonName": "Bottle-nose dolphin",
+        "commonName": "Bottlenose dolphin",
         "scientificName": "Tursiops truncatus"
       },
       {
@@ -641,11 +629,11 @@
         "scientificName": "Laniarius ferrugineus"
       },
       {
-        "commonName": "Brazilian otter",
+        "commonName": "Giant otter",
         "scientificName": "Pteronura brasiliensis"
       },
       {
-        "commonName": "Brazilian tapir",
+        "commonName": "South American tapir",
         "scientificName": "Tapirus terrestris"
       },
       {
@@ -689,7 +677,7 @@
         "scientificName": "Phascogale tapoatafa"
       },
       {
-        "commonName": "Brush-tailed bettong",
+        "commonName": "Woylie",
         "scientificName": "Bettongia penicillata"
       },
       {
@@ -711,10 +699,6 @@
       {
         "commonName": "Bush dog",
         "scientificName": "Speothos vanaticus"
-      },
-      {
-        "commonName": "Large-eared bushbaby",
-        "scientificName": "Galago crassicaudataus"
       },
       {
         "commonName": "Harnessed bushbuck",
@@ -745,8 +729,8 @@
         "scientificName": "Junonia evarete"
       },
       {
-        "commonName": "Buttermilk snake",
-        "scientificName": "Coluber constrictor"
+        "commonName": "Coluber constrictor anthicus",
+        "scientificName": "Coluber constrictor anthicus"
       }
     ],
     "C-letter": [
@@ -831,8 +815,8 @@
         "scientificName": "Felis chaus"
       },
       {
-        "commonName": "Long-tailed spotted cat",
-        "scientificName": "Felis wiedi or Leopardus weidi"
+        "commonName": "Margay",
+        "scientificName": "Leopardus weidii"
       },
       {
         "commonName": "Native cat",
@@ -975,6 +959,30 @@
         "scientificName": "Trichosurus vulpecula"
       },
       {
+        "commonName": "Brown greater galago",
+        "scientificName": "Otolemur crassicaudatus"
+      },
+      {
+        "commonName": "Grant's bushbaby",
+        "scientificName": "Galagoides granti"
+      },
+      {
+        "commonName": "Silvery greater galago",
+        "scientificName": "Otolemur monteiri"
+      },
+      {
+        "commonName": "Northern greater galago",
+        "scientificName": "Otolemur garnettii"
+      },
+      {
+        "commonName": "Mohol bushbaby",
+        "scientificName": "Galago moholi"
+      },
+      {
+        "commonName": "Senegal bushbaby",
+        "scientificName": "Galago senegalensis"
+      },
+      {
         "commonName": "Common dolphin",
         "scientificName": "Delphinus delphis"
       },
@@ -1067,16 +1075,12 @@
         "scientificName": "Phalacrocorax carbo"
       },
       {
-        "commonName": "Javanese cormorant",
-        "scientificName": "Phalacrocorax niger"
-      },
-      {
         "commonName": "Great cormorant",
         "scientificName": "Phalacrocorax carbo"
       },
       {
         "commonName": "Little cormorant",
-        "scientificName": "Phalacrocorax niger"
+        "scientificName": "Microcarbo niger"
       },
       {
         "commonName": "Neotropic cormorant",
@@ -1221,7 +1225,7 @@
         "scientificName": "Dipodomys deserti"
       },
       {
-        "commonName": "Desert spiny lizard",
+        "commonName": "Sceloporus magister",
         "scientificName": "Sceloporus magister"
       },
       {
@@ -1486,7 +1490,7 @@
       },
       {
         "commonName": "Pampas fox",
-        "scientificName": "Pseudalopex gymnocercus"
+        "scientificName": "Lycalopex gymnocercus"
       },
       {
         "commonName": "Crab-eating fox",
@@ -1497,7 +1501,7 @@
         "scientificName": "Pternistis swainsonii"
       },
       {
-        "commonName": "Frilled-neck lizard",
+        "commonName": "Chlamydosaurus",
         "scientificName": "Chlamydosaurus kingii"
       },
       {
@@ -1567,7 +1571,7 @@
         "scientificName": "Genetta genetta"
       },
       {
-        "commonName": "Mangrove buckeye",
+        "commonName": "Junonia evarete",
         "scientificName": "Junonia genoveua"
       },
       {
@@ -1679,10 +1683,6 @@
         "scientificName": "Varanus gilleni"
       },
       {
-        "commonName": "Rusty desert monitor",
-        "scientificName": "Varanus eremius"
-      },
-      {
         "commonName": "Stripe-tailed goanna",
         "scientificName": "Varanus caudolineatus"
       },
@@ -1701,10 +1701,6 @@
       {
         "commonName": "Hudsonian godwit",
         "scientificName": "Limosa haemastica"
-      },
-      {
-        "commonName": "Golden brush-tailed possum",
-        "scientificName": "Trichosurus vulpecula"
       },
       {
         "commonName": "Golden jackal",
@@ -1827,12 +1823,8 @@
         "scientificName": "Microcebus murinus"
       },
       {
-        "commonName": "Gray partridge",
+        "commonName": "Grey partridge",
         "scientificName": "Perdix perdix"
-      },
-      {
-        "commonName": "Gray-footed squirrel",
-        "scientificName": "Paraxerus cepapi"
       },
       {
         "commonName": "Griffon vulture",
@@ -1851,8 +1843,8 @@
         "scientificName": "Colobus guerza"
       },
       {
-        "commonName": "Herring gull",
-        "scientificName": "unavailable"
+        "commonName": "European herring gull",
+        "scientificName": "Larus argentatus"
       },
       {
         "commonName": "Kelp gull",
@@ -1869,10 +1861,6 @@
       {
         "commonName": "Silver gull",
         "scientificName": "Larus novaehollandiae"
-      },
-      {
-        "commonName": "Southern black-backed gull",
-        "scientificName": "Larus dominicanus"
       },
       {
         "commonName": "Swallow-tailed gull",
@@ -1923,10 +1911,6 @@
       {
         "commonName": "Hoffmann's two-toed sloth",
         "scientificName": "Choloepus hoffmanni"
-      },
-      {
-        "commonName": "Leadbeateri's ground hornbill",
-        "scientificName": "Bucorvus leadbeateri"
       },
       {
         "commonName": "Red-billed hornbill",
@@ -2025,7 +2009,7 @@
         "scientificName": "Jabiru mycteria"
       },
       {
-        "commonName": "Silver-backed jackal",
+        "commonName": "Black-backed jackal",
         "scientificName": "Canis mesomelas"
       },
       {
@@ -2153,7 +2137,7 @@
         "scientificName": "Felis concolor"
       },
       {
-        "commonName": "South american sea lion",
+        "commonName": "South American sea lion",
         "scientificName": "Otaria flavescens"
       },
       {
@@ -2215,15 +2199,15 @@
         "scientificName": "Ara macao"
       },
       {
-        "commonName": "Madagascar hawk owl",
-        "scientificName": "Ninox superciliaris"
+        "commonName": "White-browed owl",
+        "scientificName": "Athene superciliaris"
       },
       {
         "commonName": "Magellanic penguin",
         "scientificName": "Spheniscus magellanicus"
       },
       {
-        "commonName": "Malabar squirrel",
+        "commonName": "Indian giant squirrel",
         "scientificName": "Ratufa indica"
       },
       {
@@ -2275,7 +2259,7 @@
         "scientificName": "Agkistrodon piscivorus"
       },
       {
-        "commonName": "Small indian mongoose",
+        "commonName": "Javan mongoose",
         "scientificName": "Herpestes javanicus"
       },
       {
@@ -2481,10 +2465,6 @@
         "scientificName": "Dendrocitta vagabunda"
       },
       {
-        "commonName": "Wood pigeon",
-        "scientificName": "Columba palumbus"
-      },
-      {
         "commonName": "Pine siskin",
         "scientificName": "Carduelis pinus"
       },
@@ -2517,16 +2497,8 @@
         "scientificName": "Coendou bicolor"
       },
       {
-        "commonName": "Streaked dwarf porcupine",
-        "scientificName": "Coendou ichillus"
-      },
-      {
         "commonName": "Bahia porcupine",
         "scientificName": "Coendou insidiosus"
-      },
-      {
-        "commonName": "Black-tailed hairy dwarf porcupine",
-        "scientificName": "Coendou melanurus"
       },
       {
         "commonName": "Mexican hairy dwarf porcupine",
@@ -2645,7 +2617,7 @@
         "scientificName": "Macropus rufogriseus"
       },
       {
-        "commonName": "Red-tailed wambenger",
+        "commonName": "Red-tailed phascogale",
         "scientificName": "Phascogale calura"
       },
       {
@@ -2691,7 +2663,7 @@
         "scientificName": "Oncorhynchus nerka"
       },
       {
-        "commonName": "Brazilian salmon pink bird-eating tarantula",
+        "commonName": "Lasiodora parahybana",
         "scientificName": "Lasiodora parahybana"
       },
       {
@@ -2703,7 +2675,7 @@
         "scientificName": "Pterocles gutturalis"
       },
       {
-        "commonName": "Spotted wood sandpiper",
+        "commonName": "Wood sandpiper",
         "scientificName": "Tringa glareola"
       },
       {
@@ -2731,7 +2703,7 @@
         "scientificName": "Eurocephalus anguitimens"
       },
       {
-        "commonName": "Sidewinder",
+        "commonName": "Crotalus cerastes",
         "scientificName": "Crotalus cerastes"
       },
       {
@@ -2933,10 +2905,6 @@
       {
         "commonName": "White-browed sparrow weaver",
         "scientificName": "Plocepasser mahali"
-      },
-      {
-        "commonName": "Woodchuck",
-        "scientificName": "Marmota monax"
       },
       {
         "commonName": "Woylie",
@@ -3162,8 +3130,8 @@
       "scientificName": "Manouria emys"
     },
     {
-      "commonName": "Asian lion",
-      "scientificName": "Panthera leo persica"
+      "commonName": "Asiatic lion",
+      "scientificName": "Panthera leo leo"
     },
     {
       "commonName": "Asian openbill",
@@ -3204,10 +3172,6 @@
     {
       "commonName": "Pied avocet",
       "scientificName": "Recurvirostra avosetta"
-    },
-    {
-      "commonName": "Azara's zorro",
-      "scientificName": "Pseudalopex gymnocercus"
     },
     {
       "commonName": "Chacma baboon",
@@ -3342,7 +3306,7 @@
       "scientificName": "Macropus rufogriseus"
     },
     {
-      "commonName": "Brush-tailed bettong",
+      "commonName": "Woylie",
       "scientificName": "Bettongia penicillata"
     },
     {
@@ -3366,7 +3330,7 @@
       "scientificName": "Colobus guerza"
     },
     {
-      "commonName": "Black curlew",
+      "commonName": "Blackish oystercatcher",
       "scientificName": "Haematopus ater"
     },
     {
@@ -3404,10 +3368,6 @@
     {
       "commonName": "Black-capped chickadee",
       "scientificName": "Parus atricapillus"
-    },
-    {
-      "commonName": "Black-cheeked waxbill",
-      "scientificName": "Estrilda erythronotos"
     },
     {
       "commonName": "Black crowned crane",
@@ -3478,7 +3438,7 @@
       "scientificName": "Damaliscus pygargus phillipsi"
     },
     {
-      "commonName": "Red-cheeked cordon bleu",
+      "commonName": "Red-cheeked cordon-bleu",
       "scientificName": "Uraeginthus bengalus"
     },
     {
@@ -3546,10 +3506,6 @@
       "scientificName": "Acrantophis madagascariensis"
     },
     {
-      "commonName": "Mexican boa",
-      "scientificName": "Boa constrictor mexicana"
-    },
-    {
       "commonName": "Wild boar",
       "scientificName": "Sus scrofa"
     },
@@ -3578,7 +3534,7 @@
       "scientificName": "Sula dactylatra"
     },
     {
-      "commonName": "Bottle-nose dolphin",
+      "commonName": "Bottlenose dolphin",
       "scientificName": "Tursiops truncatus"
     },
     {
@@ -3586,11 +3542,11 @@
       "scientificName": "Laniarius ferrugineus"
     },
     {
-      "commonName": "Brazilian otter",
+      "commonName": "Giant otter",
       "scientificName": "Pteronura brasiliensis"
     },
     {
-      "commonName": "Brazilian tapir",
+      "commonName": "South American tapir",
       "scientificName": "Tapirus terrestris"
     },
     {
@@ -3634,7 +3590,7 @@
       "scientificName": "Phascogale tapoatafa"
     },
     {
-      "commonName": "Brush-tailed bettong",
+      "commonName": "Woylie",
       "scientificName": "Bettongia penicillata"
     },
     {
@@ -3656,10 +3612,6 @@
     {
       "commonName": "Bush dog",
       "scientificName": "Speothos vanaticus"
-    },
-    {
-      "commonName": "Large-eared bushbaby",
-      "scientificName": "Galago crassicaudataus"
     },
     {
       "commonName": "Harnessed bushbuck",
@@ -3690,8 +3642,8 @@
       "scientificName": "Junonia evarete"
     },
     {
-      "commonName": "Buttermilk snake",
-      "scientificName": "Coluber constrictor"
+      "commonName": "Coluber constrictor anthicus",
+      "scientificName": "Coluber constrictor anthicus"
     },
     {
       "commonName": "Spectacled caiman",
@@ -3778,8 +3730,8 @@
       "scientificName": "Felis chaus"
     },
     {
-      "commonName": "Long-tailed spotted cat",
-      "scientificName": "Felis wiedi or Leopardus weidi"
+      "commonName": "Margay",
+      "scientificName": "Leopardus weidii"
     },
     {
       "commonName": "Native cat",
@@ -3922,6 +3874,30 @@
       "scientificName": "Trichosurus vulpecula"
     },
     {
+      "commonName": "Brown greater galago",
+      "scientificName": "Otolemur crassicaudatus"
+    },
+    {
+      "commonName": "Grant's bushbaby",
+      "scientificName": "Galagoides granti"
+    },
+    {
+      "commonName": "Silvery greater galago",
+      "scientificName": "Otolemur monteiri"
+    },
+    {
+      "commonName": "Northern greater galago",
+      "scientificName": "Otolemur garnettii"
+    },
+    {
+      "commonName": "Mohol bushbaby",
+      "scientificName": "Galago moholi"
+    },
+    {
+      "commonName": "Senegal bushbaby",
+      "scientificName": "Galago senegalensis"
+    },
+    {
       "commonName": "Common dolphin",
       "scientificName": "Delphinus delphis"
     },
@@ -4014,16 +3990,12 @@
       "scientificName": "Phalacrocorax carbo"
     },
     {
-      "commonName": "Javanese cormorant",
-      "scientificName": "Phalacrocorax niger"
-    },
-    {
       "commonName": "Great cormorant",
       "scientificName": "Phalacrocorax carbo"
     },
     {
       "commonName": "Little cormorant",
-      "scientificName": "Phalacrocorax niger"
+      "scientificName": "Microcarbo niger"
     },
     {
       "commonName": "Neotropic cormorant",
@@ -4170,7 +4142,7 @@
       "scientificName": "Dipodomys deserti"
     },
     {
-      "commonName": "Desert spiny lizard",
+      "commonName": "Sceloporus magister",
       "scientificName": "Sceloporus magister"
     },
     {
@@ -4431,7 +4403,7 @@
     },
     {
       "commonName": "Pampas fox",
-      "scientificName": "Pseudalopex gymnocercus"
+      "scientificName": "Lycalopex gymnocercus"
     },
     {
       "commonName": "Crab-eating fox",
@@ -4442,7 +4414,7 @@
       "scientificName": "Pternistis swainsonii"
     },
     {
-      "commonName": "Frilled-neck lizard",
+      "commonName": "Chlamydosaurus",
       "scientificName": "Chlamydosaurus kingii"
     },
     {
@@ -4506,7 +4478,7 @@
       "scientificName": "Genetta genetta"
     },
     {
-      "commonName": "Mangrove buckeye",
+      "commonName": "Junonia evarete",
       "scientificName": "Junonia genoveua"
     },
     {
@@ -4618,10 +4590,6 @@
       "scientificName": "Varanus gilleni"
     },
     {
-      "commonName": "Rusty desert monitor",
-      "scientificName": "Varanus eremius"
-    },
-    {
       "commonName": "Stripe-tailed goanna",
       "scientificName": "Varanus caudolineatus"
     },
@@ -4640,10 +4608,6 @@
     {
       "commonName": "Hudsonian godwit",
       "scientificName": "Limosa haemastica"
-    },
-    {
-      "commonName": "Golden brush-tailed possum",
-      "scientificName": "Trichosurus vulpecula"
     },
     {
       "commonName": "Golden jackal",
@@ -4766,12 +4730,8 @@
       "scientificName": "Microcebus murinus"
     },
     {
-      "commonName": "Gray partridge",
+      "commonName": "Grey partridge",
       "scientificName": "Perdix perdix"
-    },
-    {
-      "commonName": "Gray-footed squirrel",
-      "scientificName": "Paraxerus cepapi"
     },
     {
       "commonName": "Griffon vulture",
@@ -4790,8 +4750,8 @@
       "scientificName": "Colobus guerza"
     },
     {
-      "commonName": "Herring gull",
-      "scientificName": "unavailable"
+      "commonName": "European herring gull",
+      "scientificName": "Larus argentatus"
     },
     {
       "commonName": "Kelp gull",
@@ -4808,10 +4768,6 @@
     {
       "commonName": "Silver gull",
       "scientificName": "Larus novaehollandiae"
-    },
-    {
-      "commonName": "Southern black-backed gull",
-      "scientificName": "Larus dominicanus"
     },
     {
       "commonName": "Swallow-tail gull",
@@ -4860,10 +4816,6 @@
     {
       "commonName": "Hoffmann's two-toed sloth",
       "scientificName": "Choloepus hoffmanni"
-    },
-    {
-      "commonName": "Leadbeateri's ground hornbill",
-      "scientificName": "Bucorvus leadbeateri"
     },
     {
       "commonName": "Red-billed hornbill",
@@ -4958,7 +4910,7 @@
       "scientificName": "Jabiru mycteria"
     },
     {
-      "commonName": "Silver-backed jackal",
+      "commonName": "Black-backed jackal",
       "scientificName": "Canis mesomelas"
     },
     {
@@ -5082,7 +5034,7 @@
       "scientificName": "Felis concolor"
     },
     {
-      "commonName": "South american sea lion",
+      "commonName": "South American sea lion",
       "scientificName": "Otaria flavescens"
     },
     {
@@ -5142,15 +5094,15 @@
       "scientificName": "Ara macao"
     },
     {
-      "commonName": "Madagascar hawk owl",
-      "scientificName": "Ninox superciliaris"
+      "commonName": "White-browed owl",
+      "scientificName": "Athene superciliaris"
     },
     {
       "commonName": "Magellanic penguin",
       "scientificName": "Spheniscus magellanicus"
     },
     {
-      "commonName": "Malabar squirrel",
+      "commonName": "Indian giant squirrel",
       "scientificName": "Ratufa indica"
     },
     {
@@ -5202,7 +5154,7 @@
       "scientificName": "Agkistrodon piscivorus"
     },
     {
-      "commonName": "Small indian mongoose",
+      "commonName": "Javan mongoose",
       "scientificName": "Herpestes javanicus"
     },
     {
@@ -5402,10 +5354,6 @@
       "scientificName": "Dendrocitta vagabunda"
     },
     {
-      "commonName": "Wood pigeon",
-      "scientificName": "Columba palumbus"
-    },
-    {
       "commonName": "Pine siskin",
       "scientificName": "Carduelis pinus"
     },
@@ -5438,16 +5386,8 @@
       "scientificName": "Coendou bicolor"
     },
     {
-      "commonName": "Streaked dwarf porcupine",
-      "scientificName": "Coendou ichillus"
-    },
-    {
       "commonName": "Bahia porcupine",
       "scientificName": "Coendou insidiosus"
-    },
-    {
-      "commonName": "Black-tailed hairy dwarf porcupine",
-      "scientificName": "Coendou melanurus"
     },
     {
       "commonName": "Mexican hairy dwarf porcupine",
@@ -5562,7 +5502,7 @@
       "scientificName": "Macropus rufogriseus"
     },
     {
-      "commonName": "Red-tailed wambenger",
+      "commonName": "Red-tailed phascogale",
       "scientificName": "Phascogale calura"
     },
     {
@@ -5606,7 +5546,7 @@
       "scientificName": "Oncorhynchus nerka"
     },
     {
-      "commonName": "Brazilian salmon pink bird-eating tarantula",
+      "commonName": "Lasiodora parahybana",
       "scientificName": "Lasiodora parahybana"
     },
     {
@@ -5618,7 +5558,7 @@
       "scientificName": "Pterocles gutturalis"
     },
     {
-      "commonName": "Spotted wood sandpiper",
+      "commonName": "Wood sandpiper",
       "scientificName": "Tringa glareola"
     },
     {
@@ -5646,7 +5586,7 @@
       "scientificName": "Eurocephalus anguitimens"
     },
     {
-      "commonName": "Sidewinder",
+      "commonName": "Crotalus cerastes",
       "scientificName": "Crotalus cerastes"
     },
     {
@@ -5840,10 +5780,6 @@
     {
       "commonName": "White-browed sparrow weaver",
       "scientificName": "Plocepasser mahali"
-    },
-    {
-      "commonName": "Woodchuck",
-      "scientificName": "Marmota monax"
     },
     {
       "commonName": "Woylie",

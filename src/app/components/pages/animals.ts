@@ -10,11 +10,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastProvider } from '../../infrastructure/providers/toast';
 
 @Component({
-    selector: 'app-animal-random',
-    templateUrl: '../../templates/pages/randomAnimal.html'
+    selector: 'app-animals',
+    templateUrl: '../../templates/pages/animals.html'
 })
 
-class RandomAnimal implements OnInit, OnDestroy {
+class Animals implements OnInit, OnDestroy {
 
     public animal: Animal;
     private dataSubscription: Subscription = new Subscription();
@@ -81,7 +81,8 @@ class RandomAnimal implements OnInit, OnDestroy {
                     this.toast.presentToastWithOptions(
                         `${animal.getCommonName()} already exist (as CORRECT data) in database`,
                         3000,
-                        'warning-toast'
+                        'warning-toast',
+                        'top'
                     );
 
                 } else {
@@ -90,7 +91,8 @@ class RandomAnimal implements OnInit, OnDestroy {
                             this.toast.presentToastWithOptions(
                                 `${animal.getCommonName()} added (as CORRECT data) to database`,
                                 3000,
-                                'success-toast'
+                                'success-toast',
+                                'top'
                             );
                         }
                     );
@@ -118,7 +120,8 @@ class RandomAnimal implements OnInit, OnDestroy {
                     this.toast.presentToastWithOptions(
                         `${animal.getCommonName()} already exist (as INCORRECT data) in database`,
                         3000,
-                        'warning-toast'
+                        'warning-toast',
+                        'top'
                     );
 
                 } else {
@@ -127,7 +130,8 @@ class RandomAnimal implements OnInit, OnDestroy {
                             this.toast.presentToastWithOptions(
                                 `${animal.getCommonName()} added (as INCORRECT data) to database`,
                                 3000,
-                                'success-toast'
+                                'success-toast',
+                                'top'
                             );
                         }
                     );
@@ -166,8 +170,8 @@ class RandomAnimal implements OnInit, OnDestroy {
     }
 
     public getNewAnimal(): void {
-        this.router.navigate([`/random-animal`]);
+        this.router.navigate([`/animals`]);
     }
 }
 
-export { RandomAnimal as RandomAnimalPage };
+export { Animals as AnimalsPage };
