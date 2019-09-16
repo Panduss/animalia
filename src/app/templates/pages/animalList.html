@@ -1,7 +1,27 @@
 <custom-header></custom-header>
-<ion-content padding fullscreen>
+<ion-content padding fullscreen
+             [scrollEvents]="true"
+             (ionScroll)="logScrolling($event)"
+>
+    <ion-fab *ngIf="showScrollToTopButton" vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button color="secondary" (click)="scrollToTop()">
+            UP
+        </ion-fab-button>
+    </ion-fab>
+
     <ion-card>
-        <p>Animal Details</p>
-        <ion-button routerLink="/random-animal">Random animal</ion-button>
+        <ion-virtual-scroll [items]="animals" [headerFn]="separateAnimalsAlphabetically">
+
+            <ion-item-divider color="primary" *virtualHeader="let letter">
+                <strong>{{ letter }}</strong>
+            </ion-item-divider>
+
+            <ion-item lines="none" *virtualItem="let animal">
+                <ion-label>
+                    <h2 text-capitalize>{{ animal.commonName }}</h2>
+                    <p><i>{{ animal.scientificName }}</i></p>
+                </ion-label>
+            </ion-item>
+        </ion-virtual-scroll>
     </ion-card>
 </ion-content>
