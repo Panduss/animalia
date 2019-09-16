@@ -14,12 +14,12 @@ class Menu implements OnInit, OnDestroy {
 
     public pages = [
         {
-            title: 'Random animal',
-            url: '/menu/random-animal'
+            title: 'Animals',
+            url: '/menu/animals'
         },
         {
-            title: 'BBC Animal News',
-            url: '/menu/news'
+            title: 'Animal list A-Z',
+            url: '/menu/animal-list'
         }
     ];
 

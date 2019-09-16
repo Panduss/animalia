@@ -13,20 +13,20 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'random-animal',
+                redirectTo: 'animals',
                 pathMatch: 'full'
             },
             {
-                path: 'random-animal',
-                loadChildren: '../pages/randomAnimal#RandomAnimalModule',
+                path: 'animals',
+                loadChildren: '../pages/animals#AnimalsModule',
                 resolve: {
                     animal: AnimalResolver
                 },
                 runGuardsAndResolvers: 'always'
             },
             {
-                path: 'news',
-                loadChildren: '../pages/news#NewsModule'
+                path: 'animal-list',
+                loadChildren: '../pages/animalList#AnimalListModule'
             }
         ]
     }
