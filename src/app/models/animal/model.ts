@@ -1,4 +1,4 @@
-class Model {
+export class Animal {
     private readonly commonName: string;
     private readonly scientificName: string;
     private readonly description?: string;
@@ -32,5 +32,3 @@ class Model {
         return this.image;
     }
 }
-
-export { Model as Animal };
