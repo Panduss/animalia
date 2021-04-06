@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ReadService } from '../contracts/services/read';
-import { AnimalPrototype, WikiResponsePrototype } from './prototype';
+import { AnimalPrototype, WikiResponsePrototype } from '../../models/animal/prototype';
 import { HttpClient } from '@angular/common/http';
-import * as animalsDb from '../../domain/animal/animalsDb.json';
+import * as animalsDb from '../../models/animal/animalsDb.json';
 import { map } from 'rxjs/operators';
-import { Animal } from '../../domain/animal/model';
+import { Animal } from '../../models/animal/model';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AnimalService implements ReadService<Animal> {
 
-    private animal: AnimalPrototype;
+    public animal: AnimalPrototype;
     private animals = animalsDb.FULL_LIST;
 
     public constructor(
@@ -21,11 +21,12 @@ export class AnimalService implements ReadService<Animal> {
     }
 
     public retrieve(): Observable<Animal> {
-        const query = `titles=${ this.getRandomAnimal().commonName.split(' ').join('_') }`;
-        return this.getAnimalDataFromWikipedia(query);
+        this.animal = this.getRandomAnimal();
+        const query = `titles=${ this.animal.commonName.split(' ').join('_') }`;
+        return this.getWikiData(query);
     }
 
-    private getAnimalDataFromWikipedia(query: string): Observable<Animal> {
+    private getWikiData(query: string): Observable<Animal> {
         return this.http.get<WikiResponsePrototype>(
             `${environment.wikipedia.baseUrl }${ query }${ environment.wikipedia.getThumbnail }`
         ).pipe(map((response: WikiResponsePrototype) => {

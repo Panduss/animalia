@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import * as animalsDb from '../../domain/animal/animalsDb.json';
-import { AnimalPrototype } from '../../infrastructure/animal/prototype';
+import * as animalsDb from '../../models/animal/animalsDb.json';
+import { AnimalPrototype } from '../../models/animal/prototype';
 import { IonContent } from '@ionic/angular';
 
 @Component({
