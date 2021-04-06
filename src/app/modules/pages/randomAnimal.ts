@@ -1,9 +1,10 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RandomAnimalPage} from 'src/app/components/pages/randomAnimal';
-import {RouterModule, Routes} from '@angular/router';
-import {CardModule} from '../components/card';
-import {IonicModule} from '@ionic/angular';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RandomAnimalPage } from 'src/app/components/pages/randomAnimal';
+import { RouterModule, Routes } from '@angular/router';
+import { CardModule } from '../components/card';
+import { IonicModule } from '@ionic/angular';
+import { AnimalService } from '../../infrastructure/animal/service';
 
 const routes: Routes = [
     {
@@ -13,19 +14,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        IonicModule,
-        RouterModule.forChild(routes),
-        CardModule
-    ],
-    declarations: [
-        RandomAnimalPage
-    ],
-    exports: [
-        RandomAnimalPage
-    ]
-})
+              imports: [
+                  CommonModule,
+                  IonicModule,
+                  RouterModule.forChild(routes),
+                  CardModule
+              ],
+              providers: [AnimalService],
+              declarations: [RandomAnimalPage],
+              exports: [RandomAnimalPage]
+          })
 export class RandomAnimalModule {
 }
 

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import { AnimalResolver } from './infrastructure/animal/resolver';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
@@ -10,11 +9,7 @@ const routes: Routes = [
     },
     {
         path: 'random-animal',
-        loadChildren: './modules/pages/randomAnimal#RandomAnimalModule',
-        resolve: {
-            animal: AnimalResolver
-        },
-        runGuardsAndResolvers: 'always'
+        loadChildren: './modules/pages/randomAnimal#RandomAnimalModule'
     },
     {
         path: 'animal-details',
@@ -23,12 +18,7 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes,
-        {
-            preloadingStrategy: PreloadAllModules,
-            onSameUrlNavigation: 'reload'
-        }),
-      AnimalResolver
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })
