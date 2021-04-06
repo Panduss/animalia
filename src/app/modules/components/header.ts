@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from '../../components/components/card';
 import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from '../../components/components/header';
 
 @NgModule({
     imports: [
         CommonModule,
         IonicModule
     ],
-    declarations: [CardComponent],
-    exports: [CardComponent]
+    exports: [
+        HeaderComponent
+    ],
+    declarations: [
+        HeaderComponent
+    ]
 })
-export class CardModule {
+export class HeaderModule {
 }

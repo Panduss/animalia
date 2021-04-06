@@ -1,0 +1,19 @@
+<custom-header></custom-header>
+<ion-content padding fullscreen>
+    <custom-card *ngIf="animal">
+        <div id="customCardHeader">
+            <img class="animal-image" *ngIf="animal.getImage()" [src]="animal.getImage()"/>
+        </div>
+        <div id="customCardTitle">
+            <h3 class="ion-no-padding">{{ animal.getCommonName() }}</h3>
+            <h4 class="ion-no-padding">{{ animal.getScientificName() }}</h4>
+        </div>
+        <div id="customCardDescription">
+            <h5>{{ animal.getDescription() }}</h5>
+        </div>
+        <span id="customCardFooter">
+            <ion-button color="secondary" (click)="getAnimal()">Show me another one!</ion-button>
+            <ion-button color="warning" title="Hello World!" (click)="reportData(animal)">Report</ion-button>
+        </span>
+    </custom-card>
+</ion-content>

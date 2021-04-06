@@ -4,12 +4,13 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #607D8B;
-  --ion-color-primary-rgb: 96, 125, 139;
+  //--ion-color-primary: #607D8B;
+  --ion-color-primary: #5d4037;
+  --ion-color-primary-rgb: 93, 64, 55;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #456270;
-  --ion-color-primary-tint: #6a8896;
+  --ion-color-primary-shade: #47342c;
+  --ion-color-primary-tint: #765046;
 
   /** secondary **/
   --ion-color-secondary: #CDDC39;
@@ -28,28 +29,28 @@
   --ion-color-tertiary-tint: #7e57ff;
 
   /** success **/
-  --ion-color-success: #10dc60;
+  --ion-color-success: #007A70;
   --ion-color-success-rgb: 16, 220, 96;
-  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast: #E0EBEA;
   --ion-color-success-contrast-rgb: 255, 255, 255;
-  --ion-color-success-shade: #0ec254;
-  --ion-color-success-tint: #28e070;
+  --ion-color-success-shade: #00645a;
+  --ion-color-success-tint: #00867c;
 
   /** warning **/
-  --ion-color-warning: #ffce00;
+  --ion-color-warning: #DBA90F;
   --ion-color-warning-rgb: 255, 206, 0;
-  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast: #F2F0E8;
   --ion-color-warning-contrast-rgb: 255, 255, 255;
-  --ion-color-warning-shade: #e0b500;
-  --ion-color-warning-tint: #ffd31a;
+  --ion-color-warning-shade: #c1900f;
+  --ion-color-warning-tint: #e2b10f;
 
   /** danger **/
-  --ion-color-danger: #f04141;
+  --ion-color-danger: #AE3226;
   --ion-color-danger-rgb: 245, 61, 61;
-  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast: #F0E9E9;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
-  --ion-color-danger-shade: #d33939;
-  --ion-color-danger-tint: #f25454;
+  --ion-color-danger-shade: #81281f;
+  --ion-color-danger-tint: #ca3628;
 
   /** dark **/
   --ion-color-dark: #455A64;
@@ -79,10 +80,30 @@
   // ** ION CONTENT ** //
 
   ion-content {
-    --background: #dee7eb;
+    --background: url('../assets/imgs/background.jpeg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  ion-toolbar {
+    max-height: 10%;
+    --background: rgba(0, 0, 0, 0);
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    --border-bottom-color: black;
+    --border-bottom-width: 1px;
   }
 
   // ** CARD ** //
+
+  ion-card {
+    --background: rgba(var(--ion-color-light-rgb), 0.5);
+    border-radius: 0;
+    color: var(--ion-color-dark-font);
+  }
 
   .image {
     position: relative;
@@ -96,56 +117,31 @@
     width: 100%;
   }
 
-  .card-body {
-    padding: 0;
-    margin: 0;
-  }
-
-  .card-img-top {
-    width: 100%;
-    background: var(--ion-color-primary);
-  }
-
   // ** RANDOM ANIMAL PAGE ** //
 
   .animal-image {
     max-width: 300px;
     max-height: 300px;
     margin: auto;
+    object-fit: cover;
   }
 
-  .card-body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+  ion-toast.warning-toast {
+    --color: var(--ion-color-warning) !important;
+    --border-radius: 10px !important;
+    --border-color: var(--ion-color-warning);
+    --border-style: solid;
+    --border-width: 1px;
+    --background: var(--ion-color-warning-contrast);
   }
 
-  .card-title-container {
-    width: 100%;
-    background: var(--ion-color-primary);
-    padding: 10px 0 10px;
-
-    .card-title {
-      color: #ffffff;
-    }
-
-    .card-subtitle {
-      color: #ffffff;
-    }
-  }
-
-  .card-description-container {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .card-title {
-    padding: 0;
-    margin: 0;
-  }
-
-  .card-subtitle {
-    padding: 0;
-    margin: 0;
+  //** SUCCESS HANDLING **//
+  ion-toast.success-toast {
+    --color: var(--ion-color-success) !important;
+    --border-radius: 10px !important;
+    --border-color: var(--ion-color-success);
+    --border-style: solid;
+    --border-width: 1px;
+    --background: var(--ion-color-success-contrast);
   }
 }

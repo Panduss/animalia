@@ -1,13 +1,22 @@
-<ion-tabs>
-    <ion-tab-bar slot="bottom" color="primary">
-        <ion-tab-button tab="random-animal">
-            <!--<fa-icon class="tab-icon" [icon]="['far', 'piggy-bank']"></fa-icon>-->
-            <ion-label class="tab-label">Random Animal</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="animal-details">
-            <!--<fa-icon class="tab-icon" [icon]="['far', 'award']"></fa-icon>-->
-            <ion-label class="tab-label">News</ion-label>
-        </ion-tab-button>
-    </ion-tab-bar>
-</ion-tabs>
+<ion-split-pane>
+    <ion-menu contentId="content">
+        <ion-content class="menu-content">
+            <ion-list class="menu-list">
+                <ion-menu-toggle [autoHide]="false" *ngFor="let page of pages">
+                    <ion-item
+                            *ngIf="selectedPath"
+                            class="menu-item"
+                            [class.active-item]="selectedPath.startsWith(page.url)"
+                            [class.inactive-item]="!selectedPath.startsWith(page.url)"
+                            [routerLink]="page.url"
+                            routerDirection="root">
+                        <p>
+                            {{page.title}}
+                        </p>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>

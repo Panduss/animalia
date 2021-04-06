@@ -10,36 +10,45 @@ import { AppComponent } from './app.component';
 import { MenuModule } from './modules/components/menu';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslationFactory } from './factory/translation';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { ToastProvider } from './infrastructure/providers/toast';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-      AppComponent
-  ],
-  imports: [
-      BrowserModule,
-      IonicModule.forRoot(),
-      AppRoutingModule,
-      HttpClientModule,
-      MenuModule,
-      TranslateModule.forRoot(
-          {
-              loader: {
-                  provide: TranslateLoader,
-                  useClass: TranslationFactory
-              }
-          }),
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {
-        provide: RouteReuseStrategy,
-        useClass: IonicRouteStrategy
-    },
-    HttpClient
-  ],
-  bootstrap: [
-      AppComponent
-  ]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MenuModule,
+        TranslateModule.forRoot(
+            {
+                loader: {
+                    provide: TranslateLoader,
+                    useClass: TranslationFactory
+                }
+            }),
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {
+            provide: RouteReuseStrategy,
+            useClass: IonicRouteStrategy
+        },
+        HttpClient,
+        AngularFirestore,
+        ToastProvider
+    ],
+    bootstrap: [
+        AppComponent
+    ]
 })
-export class AppModule {}
+export class AppModule {
+}
