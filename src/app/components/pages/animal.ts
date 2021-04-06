@@ -1,71 +1,41 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Animal } from '../../domain/animal/model';
 import { AnimalService } from '../../infrastructure/animal/service';
-import { Collection } from '../../infrastructure/collection/collection';
-import { AnimalPrototype } from '../../infrastructure/animal/prototype';
-import { AnimalMapper } from '../../infrastructure/animal/mapper';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastProvider } from '../../infrastructure/providers/toast';
 
 @Component({
-    selector: 'app-animals',
-    templateUrl: '../../templates/pages/animals.html'
+    selector: 'app-animal',
+    templateUrl: '../../templates/pages/animal.html'
 })
 
-class Animals implements OnInit, OnDestroy {
+export class AnimalPage implements OnInit {
 
-    public animal: Animal;
+    public animal: Animal = new Animal('', '');
     private dataSubscription: Subscription = new Subscription();
 
     public constructor(
         private zone: NgZone,
         private route: ActivatedRoute,
         private router: Router,
-        private service: AnimalService,
-        private mapper: AnimalMapper,
+        private animalService: AnimalService,
         private afs: AngularFirestore,
         private toast: ToastProvider
     ) {
-        this.animal = this.route.snapshot.data.animal.first();
     }
 
     public ngOnInit() {
-        this.dataSubscription = this.router.events.subscribe((e: any) => {
-            if (e instanceof NavigationEnd) {
-                this.service.retrieve().subscribe(
-                    (animal: Collection<AnimalPrototype>) => {
-                        const animalCollection = animal.convert<Animal>(this.mapper.instance.bind(this.mapper));
-
-                        const result = animalCollection.first();
-
-                        if (result) {
-                            this.animal = result;
-                            this.saveAnimalToDatabase();
-                        }
-                    }
-                );
-            }
-        });
-    }
-
-    public ngOnDestroy() {
-        if (this.dataSubscription) {
-            this.dataSubscription.unsubscribe();
-        }
+       this.getAnimal();
     }
 
     public saveAnimalToDatabase(): void {
-
         const animalToBeSaved = this.animal;
-
-        if (animalToBeSaved && animalToBeSaved.getImage()) {
+        if (animalToBeSaved.getImage()) {
             this.addAnimalDataAsCorrect(animalToBeSaved);
-
         } else {
             this.addAnimalDataAsIncorrect(animalToBeSaved);
-
         }
     }
 
@@ -75,7 +45,7 @@ class Animals implements OnInit, OnDestroy {
         const animalRef = this.afs.collection('animals').doc(id);
 
         animalRef.get().toPromise().then(
-            (docSnapshot) => {
+            (docSnapshot: any) => {
 
                 if (docSnapshot.exists) {
                     this.toast.presentToastWithOptions(
@@ -102,10 +72,8 @@ class Animals implements OnInit, OnDestroy {
     }
 
     private addAnimalDataAsIncorrect(animal: Animal): void {
-
         const id = animal.getCommonName().split(' ').join('_');
         const animalRef = this.afs.collection('incorrectAnimals').doc(id);
-
         const newIncorrectAnimal = {
             commonName: this.animal.getCommonName(),
             scientificName: this.animal.getScientificName(),
@@ -114,7 +82,7 @@ class Animals implements OnInit, OnDestroy {
         };
 
         animalRef.get().toPromise().then(
-            (docSnapshot) => {
+            (docSnapshot: any) => {
 
                 if (docSnapshot.exists) {
                     this.toast.presentToastWithOptions(
@@ -145,7 +113,7 @@ class Animals implements OnInit, OnDestroy {
         const animalRef = this.afs.collection('weirdData').doc(id);
 
         animalRef.get().toPromise().then(
-            (docSnapshot) => {
+            (docSnapshot: any) => {
 
                 if (docSnapshot.exists) {
                     this.toast.presentToastWithOptions(
@@ -169,9 +137,10 @@ class Animals implements OnInit, OnDestroy {
         );
     }
 
-    public getNewAnimal(): void {
-        this.router.navigate([`/animals`]);
+    public getAnimal(): void {
+        this.animalService.retrieve().subscribe((animal: Animal) => {
+            this.animal = animal;
+            console.log(this.animal);
+        });
     }
 }
-
-export { Animals as AnimalsPage };

@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnimalsPage } from 'src/app/components/pages/animals';
+import { AnimalPage } from 'src/app/components/pages/animal';
 import { RouterModule, Routes } from '@angular/router';
 import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HeaderModule } from '../components/header';
+import { AnimalService } from '../../infrastructure/animal/service';
 
 const routes: Routes = [
     {
         path: '',
-        component: AnimalsPage
+        component: AnimalPage
     }
 ];
 
@@ -23,15 +24,16 @@ const routes: Routes = [
         HeaderModule
     ],
     providers: [
+        AnimalService,
         AngularFirestore
     ],
     declarations: [
-        AnimalsPage
+        AnimalPage
     ],
     exports: [
-        AnimalsPage
+        AnimalPage
     ]
 })
-export class AnimalsModule {
+export class AnimalModule {
 }
 

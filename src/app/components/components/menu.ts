@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
     templateUrl: '../../templates/components/menu.html',
     styleUrls: ['../../styles/components/menu.scss']
 })
-class Menu implements OnInit, OnDestroy {
+export class MenuComponent implements OnInit, OnDestroy {
 
     public selectedPath?: string;
     private routeSubscription: Subscription = new Subscription();
@@ -15,7 +15,7 @@ class Menu implements OnInit, OnDestroy {
     public pages = [
         {
             title: 'Animals',
-            url: '/menu/animals'
+            url: '/menu/animal'
         },
         {
             title: 'Animal list A-Z',
@@ -42,5 +42,3 @@ class Menu implements OnInit, OnDestroy {
         this.routeSubscription.unsubscribe();
     }
 }
-
-export { Menu as MenuComponent };

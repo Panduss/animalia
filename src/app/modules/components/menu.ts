@@ -4,7 +4,6 @@ import { IonicModule } from '@ionic/angular';
 import { MenuComponent } from '../../components/components/menu';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AnimalResolver } from '../../infrastructure/animal/resolver';
 
 const routes: Routes = [
     {
@@ -13,16 +12,12 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'animals',
+                redirectTo: 'animal',
                 pathMatch: 'full'
             },
             {
-                path: 'animals',
-                loadChildren: '../pages/animals#AnimalsModule',
-                resolve: {
-                    animal: AnimalResolver
-                },
-                runGuardsAndResolvers: 'always'
+                path: 'animal',
+                loadChildren: '../pages/animal#AnimalModule'
             },
             {
                 path: 'animal-list',
@@ -33,20 +28,19 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        IonicModule,
-        TranslateModule.forChild(),
-        RouterModule.forChild(routes),
-        AnimalResolver
-    ],
-    exports: [
-        MenuComponent
-    ],
-    declarations: [
-        MenuComponent
-    ]
-})
+              imports: [
+                  CommonModule,
+                  IonicModule,
+                  TranslateModule.forChild(),
+                  RouterModule.forChild(routes)
+              ],
+              exports: [
+                  MenuComponent
+              ],
+              declarations: [
+                  MenuComponent
+              ]
+          })
 class Menu {
 }
 

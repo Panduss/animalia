@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['../../styles/components/card.scss']
 })
 
-class Card {
+export class CardComponent {
 }
-
-export { Card as CardComponent };

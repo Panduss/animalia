@@ -1,23 +1,19 @@
-interface Prototype {
-    commonName: string;
-    scientificName: string;
-    description?: string;
-    image?: string;
+export interface AnimalPrototype {
+  commonName: string;
+  scientificName: string;
+  description?: string;
+  image?: string;
 }
 
-export { Prototype as AnimalPrototype };
-
-interface WikiResponse {
+export interface WikiResponsePrototype {
   batchcomplete: string;
   query: {
     normalized: [{}],
-    pages: [Wikipage]
+    pages: [WikiPageResponsePrototype]
   };
 }
 
-export { WikiResponse as WikiResponsePrototype };
-
-interface Wikipage {
+export interface WikiPageResponsePrototype {
   extract: string;
   ns: number;
   pageid: number;
@@ -29,5 +25,3 @@ interface Wikipage {
   };
   title: string;
 }
-
-export { Wikipage as WikipageResponsePrototype };
