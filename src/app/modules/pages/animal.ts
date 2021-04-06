@@ -6,7 +6,7 @@ import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HeaderModule } from '../components/header';
-import { AnimalService } from '../../infrastructure/animal/service';
+import { AnimalService } from '../../infrastructure/services/service';
 
 const routes: Routes = [
     {

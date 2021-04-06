@@ -71,6 +71,7 @@
     "one-variable-per-declaration": false,
     "component-class-suffix": [false, "Page", "Component"],
     "directive-class-suffix": true,
+    "strict-property-initialization": false,
     "directive-selector": [
       true,
       "attribute",

@@ -1,8 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Animal } from '../../domain/animal/model';
-import { AnimalService } from '../../infrastructure/animal/service';
+import { Animal } from '../../models/animal/model';
+import { AnimalService } from '../../infrastructure/services/service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastProvider } from '../../infrastructure/providers/toast';
 
@@ -33,9 +33,9 @@ export class AnimalPage implements OnInit {
     public saveAnimalToDatabase(): void {
         const animalToBeSaved = this.animal;
         if (animalToBeSaved.getImage()) {
-            this.addAnimalDataAsCorrect(animalToBeSaved);
+            // this.addAnimalDataAsCorrect(animalToBeSaved);
         } else {
-            this.addAnimalDataAsIncorrect(animalToBeSaved);
+            // this.addAnimalDataAsIncorrect(animalToBeSaved);
         }
     }
 
