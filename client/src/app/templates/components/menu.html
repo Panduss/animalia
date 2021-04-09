@@ -1,0 +1,22 @@
+<ion-split-pane>
+    <ion-menu contentId="content">
+        <ion-content class="menu-content">
+            <ion-list class="menu-list">
+                <ion-menu-toggle *ngFor="let page of pages" [autoHide]="false">
+                    <ion-item
+                            *ngIf="selectedPath"
+                            [class.active-item]="selectedPath.startsWith(page.url)"
+                            [class.inactive-item]="!selectedPath.startsWith(page.url)"
+                            [routerLink]="page.url"
+                            class="menu-item"
+                            routerDirection="root">
+                        <p>
+                            {{page.title}}
+                        </p>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>
