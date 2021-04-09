@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 import Animal from '../entitites/animal';
 import { animals } from '../entitites/animals';
-import Incorrect from '../entitites/incorrect';
+// import Incorrect from '../entitites/incorrect';
 
 export async function getAnimal(name: string): Promise<Animal> {
     if (!name) {
@@ -21,19 +21,18 @@ export async function getRandomAnimal(): Promise<Animal> {
     return await animalsRepository.findOne({ commonName: randomAnimal });
 }
 
-export async function getAllIncorrectAnimals(): Promise<Incorrect[]> {
-    const incorrectNameAnimalsRepository = getRepository(Incorrect);
-    const animalsRepository = getRepository(Animal);
-    const incorrectNameAnimals = await incorrectNameAnimalsRepository.find();
-    const incorrect = incorrectNameAnimals.map(async (incorrect: Incorrect) => {
-        const animal = await animalsRepository.findOne({ commonName: incorrect.commonName });
-        if (animal.scientificName !== incorrect.scientificName) {
-            return animal;
-        }
-    });
-
-    return Promise.all(incorrect);
-}
+// export async function getAllIncorrectAnimals(): Promise<Incorrect[]> {
+//     const incorrectNameAnimalsRepository = getRepository(Incorrect);
+//     const animalsRepository = getRepository(Animal);
+//     const incorrectNameAnimals = await incorrectNameAnimalsRepository.find();
+//     const incorrect = incorrectNameAnimals.map(async (incorrect: Incorrect) => {
+//         const animal = await animalsRepository.findOne({ commonName: incorrect.commonName });
+//         if (animal.scientificName !== incorrect.scientificName) {
+//             return animal;
+//         }
+//     });
+//     return Promise.all(incorrect);
+// }
 
 export async function addAnimals(data: Animal[]): Promise<Animal[]> {
     const animalsRepository = getRepository(Animal);

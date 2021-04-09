@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { HeaderModule } from '../components/header';
 import { AnimalService } from '../../infrastructure/services/animals.service';
 import { AnimalPage } from '../../components/pages/animal';
@@ -24,8 +23,7 @@ const routes: Routes = [
         HeaderModule
     ],
     providers: [
-        AnimalService,
-        AngularFirestore
+        AnimalService
     ],
     declarations: [
         AnimalPage
