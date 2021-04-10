@@ -9,7 +9,7 @@ import { AnimalService } from '../../infrastructure/services/animals.service';
 })
 export class AnimalListPage implements OnInit {
 
-    @ViewChild(IonContent) content!: IonContent;
+    @ViewChild(IonContent, { static: true }) content!: IonContent;
     public animals: Array<AnimalPrototype> = [];
     public showScrollToTopButton = false;
     public mappedAnimals: Array<any> = [];
