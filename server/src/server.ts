@@ -29,9 +29,9 @@ const corsOptions = {
 };
 
 app.use(morgan(morgan.compile('[:date[web]] :method :url :status (millis :response-time) :remote-addr :referrer')));
-app.use(cors(corsOptions));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(cors(corsOptions));
 app.use('/', routes);
 
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
