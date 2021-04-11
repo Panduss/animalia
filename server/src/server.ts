@@ -5,8 +5,12 @@ import morgan from 'morgan';
 import setupDb from './db';
 import routes from './routes';
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 const whitelist = [
     'http://localhost:4200'
