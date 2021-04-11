@@ -44,5 +44,3 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 setupDb().then(() => app.listen(PORT, () => console.log(`Listening on port ${ PORT }`))).catch((err) => console.error(err));
-console.log('ENV AFTER', process.env);
-
