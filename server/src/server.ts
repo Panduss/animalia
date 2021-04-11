@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 
 const whitelist = [
     'http://localhost:4200',
-    'https://animalia.netlify.app/'
+    'https://animalia.netlify.app'
 ];
 
 const corsOptions = {
