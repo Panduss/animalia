@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
-import { HeaderModule } from '../components/header';
-import { AnimalService } from '../../infrastructure/services/animals.service';
-import { AnimalPage } from '../../components/pages/animal';
+import { AnimalService } from '../../../infrastructure/services/animals.service';
+import { AnimalPage } from './animal.component';
+import { AnimalCardModule } from '../../components/animalCard/animalCard.module';
+import { TabModule } from '../../components/tab/tab.module';
 
 const routes: Routes = [
     {
@@ -19,8 +19,8 @@ const routes: Routes = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        CardModule,
-        HeaderModule
+        AnimalCardModule,
+        TabModule
     ],
     providers: [
         AnimalService

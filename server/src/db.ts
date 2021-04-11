@@ -9,5 +9,5 @@ export default () =>
             entities: [Animal],
             synchronize: true,
             logging: true,
-            ssl: { rejectUnauthorized: false }
+            ...(process.env.NODE_ENV === 'production' && {ssl: { rejectUnauthorized: false }})
         }).then((_) => console.log('Connected to Postgres with TypeORM'));

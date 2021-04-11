@@ -1,23 +1,31 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AnimalPrototype } from '../../models/animal/prototype';
-import { IonContent } from '@ionic/angular';
-import { AnimalService } from '../../infrastructure/services/animals.service';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { AnimalPrototype } from '../../../models/animal/prototype';
+import { IonContent, ModalController } from '@ionic/angular';
+import { AnimalService } from '../../../infrastructure/services/animals.service';
+import { AnimalCardComponent } from '../../components/animalCard/animalCard.component';
 
 @Component({
-    selector: 'app-animal-list',
-    templateUrl: '../../templates/pages/animalList.html'
+    selector: 'app-list',
+    templateUrl: './list.component.html'
 })
-export class AnimalListPage implements OnInit {
+export class ListPage implements OnInit {
 
     @ViewChild(IonContent, { static: true }) content!: IonContent;
     public animals: Array<AnimalPrototype> = [];
     public showScrollToTopButton = false;
     public mappedAnimals: Array<any> = [];
     public from = 0;
+    private eventEmitter = new EventEmitter();
 
     public constructor(
-        private animalService: AnimalService
+        private animalService: AnimalService,
+        private modalController: ModalController
     ) {
+        this.eventEmitter.subscribe((event: boolean) => {
+            if (event) {
+                this.modalController.dismiss();
+            }
+        });
     }
 
     public ngOnInit() {
@@ -59,5 +67,14 @@ export class AnimalListPage implements OnInit {
     public loadMore(event: any) {
         this.listAnimals(this.animals.length);
         event.target.complete();
+    }
+
+    public async openModal(animal: AnimalPrototype): Promise<void> {
+        const modal = await this.modalController.create({
+            component: AnimalCardComponent,
+            componentProps: {data: animal, button: 'Back', event: this.eventEmitter}
+        });
+
+        await modal.present();
     }
 }

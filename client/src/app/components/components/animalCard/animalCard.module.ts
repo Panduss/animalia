@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { HeaderComponent } from '../../components/components/header';
+import { AnimalCardComponent } from './animalCard.component';
 
 @NgModule({
     imports: [
         CommonModule,
         IonicModule
     ],
-    exports: [
-        HeaderComponent
-    ],
-    declarations: [
-        HeaderComponent
-    ]
+    entryComponents: [AnimalCardComponent],
+    declarations: [AnimalCardComponent],
+    exports: [AnimalCardComponent]
 })
-export class HeaderModule {
+export class AnimalCardModule {
 }
