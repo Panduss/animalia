@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 
 const whitelist = [
     'http://localhost:4200',
-    'https://animalia.netlify.app'
+    'https://animalia.netlify.app/'
 ];
 
 const corsOptions = {
@@ -30,8 +30,8 @@ const corsOptions = {
 
 app.use(morgan(morgan.compile('[:date[web]] :method :url :status (millis :response-time) :remote-addr :referrer')));
 app.use(cors(corsOptions));
-app.use(bodyParser.json({ limit: '10mb' }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use('/', routes);
 
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
