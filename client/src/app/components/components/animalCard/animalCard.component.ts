@@ -10,20 +10,24 @@ import { AnimalService } from '../../../infrastructure/services/animals.service'
 
 export class AnimalCardComponent {
 
-    @Input() public data: AnimalPrototype|null = null;
-    @Input() public showNextButton = false;
-    @Output() showNext = new EventEmitter<boolean>();
-
     constructor(
         private animalService: AnimalService
-    ) {}
+    ) {
+    }
+
+    @Input() public data: AnimalPrototype|null = null;
+    @Input() public button = 'Back';
+    @Output() event = new EventEmitter<boolean>();
+
+    public getImage(status: string): string {
+        return `assets/icon/${status.replace(' ', '_').toLowerCase()}.png`;
+    }
 
     public reportData(animal: AnimalPrototype): void {
         this.animalService.reportData(animal);
     }
 
-    public getRandomAnimal() {
-        this.showNext.emit(true);
+    public emitEvent() {
+        this.event.emit(true);
     }
-
 }

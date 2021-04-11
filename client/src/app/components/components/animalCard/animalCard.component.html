@@ -1,23 +1,27 @@
-<div *ngIf="data">
+<ion-content class="ion-fullscreen ion-padding ion-text-center" *ngIf="data">
     <img *ngIf="data.image" [src]="data.image" class="animal-image" [alt]="data.commonName"/>
     <ion-card class="text-center custom-card align-self-center">
-        <div>
-            <h4 class="ion-no-padding">{{ data.commonName }}</h4>
-            <h5 class="ion-no-padding">{{ data.scientificName }}</h5>
-        </div>
-        <div>
-            <h6 class="ion-no-padding">{{ data.description }}</h6>
+        <ion-item class="card-title">
+            <ion-avatar slot="start">
+                <img class="status-image" [src]="getImage(data.status)" [alt]="data.status">
+            </ion-avatar>
+            <ion-label>
+                <h5><b>{{ data.commonName }}</b></h5>
+                <h5><i>{{ data.scientificName }}</i></h5>
+            </ion-label>
+        </ion-item>
+        <div class=animal-description>
+            <p>{{ data.description }}</p>
         </div>
         <ion-footer>
             <ion-row>
-                <ion-col center text-center *ngIf="showNextButton">
-                    <ion-button (click)="getRandomAnimal()" fill='clear' color="secondary">Next</ion-button>
+                <ion-col class="ion-text-center">
+                    <ion-button (click)="emitEvent()" fill='clear' color="secondary">{{button}}</ion-button>
                 </ion-col>
-                <ion-col center text-center>
+                <ion-col class="ion-text-center">
                     <ion-button (click)="reportData(data)" fill='clear' color="danger" title="Report">Report</ion-button>
                 </ion-col>
             </ion-row>
         </ion-footer>
     </ion-card>
-</div>
-
+</ion-content>

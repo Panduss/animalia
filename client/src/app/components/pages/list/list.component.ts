@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { AnimalPrototype } from '../../../models/animal/prototype';
-import { IonContent } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular';
 import { AnimalService } from '../../../infrastructure/services/animals.service';
 import { AnimalCardComponent } from '../../components/animalCard/animalCard.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-list',
@@ -16,11 +15,17 @@ export class ListPage implements OnInit {
     public showScrollToTopButton = false;
     public mappedAnimals: Array<any> = [];
     public from = 0;
+    private eventEmitter = new EventEmitter();
 
     public constructor(
         private animalService: AnimalService,
-        private dialog: MatDialog
+        private modalController: ModalController
     ) {
+        this.eventEmitter.subscribe((event: boolean) => {
+            if (event) {
+                this.modalController.dismiss();
+            }
+        });
     }
 
     public ngOnInit() {
@@ -65,11 +70,11 @@ export class ListPage implements OnInit {
     }
 
     public async openModal(animal: AnimalPrototype): Promise<void> {
-        this.dialog.open(AnimalCardComponent, {
-            data: animal,
-            hasBackdrop: true,
-            width: '95%',
-            height: '95%'
+        const modal = await this.modalController.create({
+            component: AnimalCardComponent,
+            componentProps: {data: animal, button: 'Back', event: this.eventEmitter}
         });
+
+        await modal.present();
     }
 }

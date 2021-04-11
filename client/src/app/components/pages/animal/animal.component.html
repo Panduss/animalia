@@ -1,7 +1,7 @@
 <ion-content class="ion-fullscreen ion-padding ion-text-center">
     <animal-card
             [data]=animal
-            showNextButton=true
-            (showNext)="getRandomAnimal()"
+            button='Next'
+            (event)="getRandomAnimal()"
     ></animal-card>
 </ion-content>

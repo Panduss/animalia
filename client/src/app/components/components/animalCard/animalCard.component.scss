@@ -1,22 +1,23 @@
-.custom-card-header {
-  background: rgba(var(--ion-color-primary), 0.9);
-  width: 100%;
-  background: var(--ion-color-primary);
-}
-
-.custom-card-body {
-  background: none transparent;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.custom-card-footer {
-  background: none transparent;
-  padding: 0;
+.animal-description {
+  padding: 0 15px;
 }
 
 .custom-card {
   max-width: 500px;
   margin: auto;
 }
+
+.status-image {
+  vertical-align: middle;
+  width: 50px;
+}
+
+.card-title {
+  padding-top: 15px;
+}
+
+ion-item {
+  --background: rgba(0,0,0,0);
+  --border-color: rgba(0,0,0,0);
+}
+

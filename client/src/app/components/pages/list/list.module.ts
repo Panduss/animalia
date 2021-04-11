@@ -23,12 +23,8 @@ const routes: Routes = [
         TabModule
     ],
     providers: [AnimalService],
-    declarations: [
-        ListPage
-    ],
-    exports: [
-        ListPage
-    ]
+    declarations: [ListPage],
+    exports: [ListPage]
 })
 export class ListModule {
 }
