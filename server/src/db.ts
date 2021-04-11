@@ -8,5 +8,6 @@ export default () =>
             url: process.env.DATABASE_URL,
             entities: [Animal],
             synchronize: true,
-            logging: true
+            logging: true,
+            ssl: true
         }).then((_) => console.log('Connected to Postgres with TypeORM'));
