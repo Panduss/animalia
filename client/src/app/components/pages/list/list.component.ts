@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AnimalPrototype } from '../../models/animal/prototype';
+import { AnimalPrototype } from '../../../models/animal/prototype';
 import { IonContent } from '@ionic/angular';
-import { AnimalService } from '../../infrastructure/services/animals.service';
+import { AnimalService } from '../../../infrastructure/services/animals.service';
+import { AnimalCardComponent } from '../../components/animalCard/animalCard.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-    selector: 'app-animal-list',
-    templateUrl: '../../templates/pages/animalList.html'
+    selector: 'app-list',
+    templateUrl: './list.component.html'
 })
-export class AnimalListPage implements OnInit {
+export class ListPage implements OnInit {
 
     @ViewChild(IonContent, { static: true }) content!: IonContent;
     public animals: Array<AnimalPrototype> = [];
@@ -16,7 +18,8 @@ export class AnimalListPage implements OnInit {
     public from = 0;
 
     public constructor(
-        private animalService: AnimalService
+        private animalService: AnimalService,
+        private dialog: MatDialog
     ) {
     }
 
@@ -59,5 +62,14 @@ export class AnimalListPage implements OnInit {
     public loadMore(event: any) {
         this.listAnimals(this.animals.length);
         event.target.complete();
+    }
+
+    public async openModal(animal: AnimalPrototype): Promise<void> {
+        this.dialog.open(AnimalCardComponent, {
+            data: animal,
+            hasBackdrop: true,
+            width: '95%',
+            height: '95%'
+        });
     }
 }

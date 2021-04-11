@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { MenuItemComponent } from '../../components/components/menuItem';
 import { TranslateModule } from '@ngx-translate/core';
+import { TabComponent } from './tab.component';
 
 @NgModule({
     imports: [
         CommonModule,
         IonicModule,
-        TranslateModule.forChild()
+        TranslateModule.forChild(),
     ],
     exports: [
-        MenuItemComponent
+        TabComponent
     ],
     declarations: [
-        MenuItemComponent
+        TabComponent
     ]
 })
-class MenuItem {
+export class TabModule {
 }
-
-export { MenuItem as MenuItemModule };

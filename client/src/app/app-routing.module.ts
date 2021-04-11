@@ -4,12 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        pathMatch: 'full',
-        redirectTo: 'menu'
+        redirectTo: '/animal',
+        pathMatch: 'full'
     },
     {
-        path: 'menu',
-        loadChildren: './modules/components/menu#MenuModule'
+        path: 'animal',
+        loadChildren: './components/pages/animal/animal.module#AnimalModule'
+    },
+    {
+        path: 'list',
+        loadChildren: './components/pages/list/list.module#ListModule'
     }
 ];
 

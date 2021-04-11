@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CardModule } from '../components/card';
 import { IonicModule } from '@ionic/angular';
-import { HeaderModule } from '../components/header';
-import { AnimalService } from '../../infrastructure/services/animals.service';
-import { AnimalListPage } from '../../components/pages/animalList';
+import { AnimalService } from '../../../infrastructure/services/animals.service';
+import { AnimalCardModule } from '../../components/animalCard/animalCard.module';
+import { ListPage } from './list.component';
+import { TabModule } from '../../components/tab/tab.module';
 
 const routes: Routes = [
     {
         path: '',
-        component: AnimalListPage
+        component: ListPage
     }
 ];
 
@@ -19,17 +19,17 @@ const routes: Routes = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        CardModule,
-        HeaderModule
+        AnimalCardModule,
+        TabModule
     ],
     providers: [AnimalService],
     declarations: [
-        AnimalListPage
+        ListPage
     ],
     exports: [
-        AnimalListPage
+        ListPage
     ]
 })
-export class AnimalListModule {
+export class ListModule {
 }
 

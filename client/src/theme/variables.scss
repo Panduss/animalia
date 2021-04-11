@@ -1,24 +1,26 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
+
+@font-face {
+  font-family: Cairo;
+  src: url("../assets/fonts/Cairo-Regular.ttf");
+}
 
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  //--ion-color-primary: #607D8B;
-  --ion-color-primary: #5d4037;
-  --ion-color-primary-rgb: 93, 64, 55;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #47342c;
-  --ion-color-primary-tint: #765046;
+  --ion-color-primary: #CDDC39;
+  --ion-color-primary-rgb: 205, 220, 57;
+  --ion-color-primary-contrast: #757575;
+  --ion-color-primary-contrast-rgb: 117, 117, 117;
+  --ion-color-primary-shade: #a9b837;
+  --ion-color-primary-tint: #d9e83e;
 
   /** secondary **/
-  --ion-color-secondary: #CDDC39;
-  --ion-color-secondary-rgb: 205, 220, 57;
-  --ion-color-secondary-contrast: #757575;
-  --ion-color-secondary-contrast-rgb: 117, 117, 117;
-  --ion-color-secondary-shade: #a9b837;
-  --ion-color-secondary-tint: #d9e83e;
+  --ion-color-secondary: #5d4037;
+  --ion-color-secondary-rgb: 93, 64, 55;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #47342c;
+  --ion-color-secondary-tint: #765046;
 
   /** tertiary **/
   --ion-color-tertiary: #7044ff;
@@ -79,6 +81,8 @@
   $background: #989aa2;
   // ** ION CONTENT ** //
 
+  --ion-font-family: Cairo;
+
   ion-content {
     --background: url('../assets/imgs/background.jpeg') no-repeat center center;
     -webkit-background-size: cover;
@@ -100,7 +104,7 @@
   // ** CARD ** //
 
   ion-card {
-    --background: rgba(var(--ion-color-light-rgb), 0.5);
+    --background: rgba(var(--ion-color-light-rgb), 0.7);
     border-radius: 0;
     color: var(--ion-color-dark-font);
   }
@@ -120,10 +124,10 @@
   // ** RANDOM ANIMAL PAGE ** //
 
   .animal-image {
-    max-width: 300px;
     max-height: 300px;
-    margin: auto;
+    margin: 10px auto -15px auto;
     object-fit: cover;
+    z-index: 2;
   }
 
   ion-toast.warning-toast {

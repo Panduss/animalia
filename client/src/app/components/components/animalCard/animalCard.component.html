@@ -1,0 +1,23 @@
+<div *ngIf="data">
+    <img *ngIf="data.image" [src]="data.image" class="animal-image" [alt]="data.commonName"/>
+    <ion-card class="text-center custom-card align-self-center">
+        <div>
+            <h4 class="ion-no-padding">{{ data.commonName }}</h4>
+            <h5 class="ion-no-padding">{{ data.scientificName }}</h5>
+        </div>
+        <div>
+            <h6 class="ion-no-padding">{{ data.description }}</h6>
+        </div>
+        <ion-footer>
+            <ion-row>
+                <ion-col center text-center *ngIf="showNextButton">
+                    <ion-button (click)="getRandomAnimal()" fill='clear' color="secondary">Next</ion-button>
+                </ion-col>
+                <ion-col center text-center>
+                    <ion-button (click)="reportData(data)" fill='clear' color="danger" title="Report">Report</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-footer>
+    </ion-card>
+</div>
+

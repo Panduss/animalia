@@ -1,11 +1,10 @@
-<custom-header></custom-header>
 <ion-content (ionScroll)="logScrolling($event)" [scrollEvents]="true"
              fullscreen
              padding
 >
-    <ion-fab *ngIf="showScrollToTopButton" horizontal="end" slot="fixed" vertical="top">
-        <ion-fab-button (click)="scrollToTop()" color="secondary">
-            UP
+    <ion-fab *ngIf="showScrollToTopButton" horizontal="end" slot="fixed" vertical="bottom">
+        <ion-fab-button (click)="scrollToTop()" color="primary">
+            <ion-icon name="arrow-up"></ion-icon>
         </ion-fab-button>
     </ion-fab>
 
@@ -15,16 +14,7 @@
             <ion-item-divider *virtualHeader="let letter" color="primary">
                 <strong>{{ letter }}</strong>
             </ion-item-divider>
-
-            <!--            <ion-item lines="none" *virtualItem="let animal">-->
-            <!--                <ion-label>-->
-            <!--                    <h2 text-capitalize>{{ animal.commonName }}</h2>-->
-            <!--                    <p><i>{{ animal.scientificName }}</i></p>-->
-            <!--                </ion-label>-->
-            <!--            </ion-item>-->
-
-
-            <ion-item *virtualItem="let animal">
+            <ion-item *virtualItem="let animal" (click)=openModal(animal)>
                 <ion-avatar slot="start">
                     <img [alt]='animal.commonName' src="{{animal.image}}">
                 </ion-avatar>
