@@ -5,7 +5,7 @@ export default () =>
     createConnection(
         {
             type: 'postgres',
-            url: 'postgres://postgres:secret@localhost:5432/animalia',
+            url: process.env.DATABASE_URL,
             entities: [Animal],
             synchronize: true,
             logging: true
