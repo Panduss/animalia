@@ -9,5 +9,5 @@ export default () =>
             entities: [Animal],
             synchronize: true,
             logging: true,
-            ssl: true
+            extra: { ssl: true, rejectUnauthorized: false }
         }).then((_) => console.log('Connected to Postgres with TypeORM'));
