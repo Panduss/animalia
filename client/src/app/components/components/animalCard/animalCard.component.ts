@@ -6,8 +6,7 @@ import { ToastProvider } from '../../../infrastructure/providers/toast';
 
 @Component({
     selector: 'animal-card',
-    templateUrl: './animalCard.component.html',
-    styleUrls: ['./animalCard.component.scss']
+    templateUrl: './animalCard.component.html'
 })
 
 export class AnimalCardComponent {
