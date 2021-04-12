@@ -32,7 +32,7 @@ export async function reportAnimal(commonName: string, animalId: number): Promis
         };
         return reportRepository.save(newReport);
     } else {
-        return
+        return existingReport;
     }
 }
 
