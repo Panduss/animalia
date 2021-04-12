@@ -35,3 +35,5 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 src/app/models/animal/data
+../.idea
+../.DS_Store

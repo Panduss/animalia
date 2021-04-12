@@ -1,6 +1,6 @@
 <ion-content class="ion-fullscreen ion-padding ion-text-center" *ngIf="data">
     <img *ngIf="data.image" [src]="data.image" class="animal-image" [alt]="data.commonName"/>
-    <ion-card class="text-center custom-card align-self-center">
+    <ion-card class="text-center align-self-center">
         <ion-item class="card-title">
             <ion-avatar slot="start">
                 <img class="status-image" [src]="getImage(data.status)" [alt]="data.status">
