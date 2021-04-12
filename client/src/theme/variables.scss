@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: Cairo;
   src: url("../assets/fonts/Cairo-Regular.ttf");
@@ -71,27 +70,27 @@
   --ion-color-medium-tint: #c2c4cc;
 
   /** light **/
-  --ion-color-light: #CFD8DC;
-  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light: #ededed;
+  --ion-color-light-rgb: 237,237,237;
   --ion-color-light-contrast: #000000;
-  --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #a3acb0;
-  --ion-color-light-tint: #dee7eb;
+  --ion-color-light-contrast-rgb: 0,0,0;
+  --ion-color-light-shade: #d1d1d1;
+  --ion-color-light-tint: #efefef;
 
   .ion-color-critically-endangered {
     --ion-color-base: #cd302f;
-    --ion-color-base-rgb: 205,48,47;
+    --ion-color-base-rgb: 205, 48, 47;
     --ion-color-base-contrast: #DF6867;
-    --ion-color-base-contrast-rgb: 223,104,103;
+    --ion-color-base-contrast-rgb: 223, 104, 103;
     --ion-color-base-shade: #b42a29;
     --ion-color-base-tint: #d24544;
   }
 
   .ion-color-endangered {
     --ion-color-base: #CE662F;
-    --ion-color-base-rgb: 206,102,47;
+    --ion-color-base-rgb: 206, 102, 47;
     --ion-color-base-contrast: #FFCD9A;
-    --ion-color-base-contrast-rgb: 255,205,154;
+    --ion-color-base-contrast-rgb: 255, 205, 154;
     --ion-color-base-shade: #b55a29;
     --ion-color-base-tint: #d37544;
 
@@ -99,53 +98,40 @@
 
   .ion-color-vulnerable {
     --ion-color-base: #CD9B00;
-    --ion-color-base-rgb: 205,155,0;
+    --ion-color-base-rgb: 205, 155, 0;
     --ion-color-base-contrast: #FFFFCE;
-    --ion-color-base-contrast-rgb: 255,255,206;
+    --ion-color-base-contrast-rgb: 255, 255, 206;
     --ion-color-base-shade: #b48800;
     --ion-color-base-tint: #d2a51a;
   }
 
   .ion-color-near-threatened {
     --ion-color-base: #006666;
-    --ion-color-base-rgb: 0,102,102;
+    --ion-color-base-rgb: 0, 102, 102;
     --ion-color-base-contrast: #6AAF8B;
-    --ion-color-base-contrast-rgb: 106,175,139;
+    --ion-color-base-contrast-rgb: 106, 175, 139;
     --ion-color-base-shade: #005a5a;
     --ion-color-base-tint: #1a7575;
   }
 
   .ion-color-least-concern {
     --ion-color-base: #006666;
-    --ion-color-base-rgb: 0,102,102;
+    --ion-color-base-rgb: 0, 102, 102;
     --ion-color-base-contrast: #DEECEC;
-    --ion-color-base-contrast-rgb: 222,236,236;
+    --ion-color-base-contrast-rgb: 222, 236, 236;
     --ion-color-base-shade: #005a5a;
     --ion-color-base-tint: #1a7575;
   }
 
-
   $background: #989aa2;
-  // ** ION CONTENT ** //
 
   --ion-font-family: Cairo;
 
-  ion-content {
-    --background: url('../assets/imgs/background.jpeg') no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-
-  ion-toolbar {
-    max-height: 10%;
-    --background: rgba(0, 0, 0, 0);
-    width: 100%;
-    text-align: center;
-    align-content: center;
-    --border-bottom-color: black;
-    --border-bottom-width: 1px;
+  // ** ION CONTENT ** //
+  app-animal ion-content {
+    --background: url(../assets/imgs/background.jpeg) no-repeat center center fixed;
+    --background-size: cover;
+    width: 100% !important;
   }
 
   // ** CARD ** //
@@ -156,25 +142,9 @@
     color: var(--ion-color-dark-font);
   }
 
-  .image {
-    position: relative;
-    width: 100%; /* for IE 6 */
-  }
-
-  .text {
-    position: absolute;
-    top: 200px;
-    left: 0;
-    width: 100%;
-  }
-
-  // ** RANDOM ANIMAL PAGE ** //
-
-  .animal-image {
-    max-height: 300px;
-    margin: 10px auto -15px auto;
-    object-fit: cover;
-    z-index: 2;
+  ion-item {
+    --background: rgba(0,0,0,0);
+    --border-color: rgba(0,0,0,0);
   }
 
   ion-toast.warning-toast {
