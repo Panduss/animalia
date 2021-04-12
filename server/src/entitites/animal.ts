@@ -5,7 +5,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export default class Animal extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    public id: string;
+    public id: number;
 
     @IsString()
     @Column('text', { nullable: false })

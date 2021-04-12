@@ -1,16 +1,19 @@
+import { getAllAnimals, getAnimal, getRandomAnimal, reportAnimal } from './providers/animals';
 import Animal from './entitites/animal';
-import { addAnimals, getAllAnimals, getAnimal, getRandomAnimal } from './providers/animals';
+import Report from './entitites/report';
 
 interface AnimalsApiInterface {
     getRandomAnimal: () => Promise<Animal>;
     getAllAnimals: (from: string) => Promise<Array<Animal>>;
     getAnimal: (name: string) => Promise<Animal>;
-    addAnimals: (animals: Array<Animal>) => Promise<Array<Animal>>;
+    reportAnimal: (commonName: string, animalId: number) => Promise<Report>;
+    // addAnimals: (animals: Array<Animal>) => Promise<Array<Animal>>;
 }
 
 export const AnimalsApi: AnimalsApiInterface = {
     getRandomAnimal,
     getAllAnimals,
     getAnimal,
-    addAnimals
+    reportAnimal
+    // addAnimals
 };

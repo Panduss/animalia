@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 import Animal from '../entitites/animal';
 import { animals } from '../entitites/animals';
-// import Incorrect from '../entitites/incorrect';
+import Report from '../entitites/report';
 
 export async function getAnimal(name: string): Promise<Animal> {
     if (!name) {
@@ -11,14 +11,29 @@ export async function getAnimal(name: string): Promise<Animal> {
     return await animalsRepository.findOne({ commonName: name });
 }
 
-export async function getAllAnimals(from: string): Promise<Animal[]> {
-    return getRepository(Animal).createQueryBuilder('animal').orderBy('animal.commonName', 'ASC').skip(parseInt(from, 10)).take(20).getMany();
+export function getAllAnimals(from: string): Promise<Animal[]> {
+    return getRepository(Animal).createQueryBuilder('animal').orderBy('animal.commonName', 'ASC')
+    .skip(parseInt(from, 10)).take(20).getMany();
 }
 
 export async function getRandomAnimal(): Promise<Animal> {
     const animalsRepository = getRepository(Animal);
     const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
     return await animalsRepository.findOne({ commonName: randomAnimal });
+}
+
+export async function reportAnimal(commonName: string, animalId: number): Promise<Report> {
+    const reportRepository = getRepository(Report);
+    const existingReport = await reportRepository.findOne({ animalId });
+    if (!existingReport) {
+        const newReport = {
+            commonName,
+            animalId
+        };
+        return reportRepository.save(newReport);
+    } else {
+        return
+    }
 }
 
 // export async function getAllIncorrectAnimals(): Promise<Incorrect[]> {
@@ -34,21 +49,21 @@ export async function getRandomAnimal(): Promise<Animal> {
 //     return Promise.all(incorrect);
 // }
 
-export async function addAnimals(data: Animal[]): Promise<Animal[]> {
-    const animalsRepository = getRepository(Animal);
-    const savedAnimals = await data.map(async (animal: Animal) => {
-        const existingPosition = await animalsRepository.findOne({ commonName: animal.commonName });
-        if (!existingPosition) {
-            const newAnimal = {
-                commonName: animal.commonName,
-                scientificName: animal.scientificName,
-                classis: animal.classis,
-                status: animal.status,
-                image: animal.image,
-                description: animal.description
-            };
-            return animalsRepository.save(newAnimal);
-        }
-    });
-    return Promise.all(savedAnimals);
-}
+// export async function addAnimals(data: Animal[]): Promise<Animal[]> {
+//     const animalsRepository = getRepository(Animal);
+//     const savedAnimals = await data.map(async (animal: Animal) => {
+//         const existingPosition = await animalsRepository.findOne({ commonName: animal.commonName });
+//         if (!existingPosition) {
+//             const newAnimal = {
+//                 commonName: animal.commonName,
+//                 scientificName: animal.scientificName,
+//                 classis: animal.classis,
+//                 status: animal.status,
+//                 image: animal.image,
+//                 description: animal.description
+//             };
+//             return animalsRepository.save(newAnimal);
+//         }
+//     });
+//     return Promise.all(savedAnimals);
+// }
