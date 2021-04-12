@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'custom-tab',
-    templateUrl: './tab.component.html',
-    styleUrls: [ './tab.component.scss' ]
+    templateUrl: './tab.component.html'
 })
 export class TabComponent {
 }

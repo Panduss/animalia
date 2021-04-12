@@ -17,8 +17,10 @@
   padding-top: 15px;
 }
 
-ion-item {
-  --background: rgba(0,0,0,0);
-  --border-color: rgba(0,0,0,0);
+.animal-image {
+  max-height: 300px;
+  margin: 10px auto -15px auto;
+  object-fit: cover;
+  z-index: 2;
 }
 
