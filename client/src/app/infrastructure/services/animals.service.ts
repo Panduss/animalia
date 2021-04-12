@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ReadService } from '../contracts/services/read';
+import { Report } from '../../models/report/prototype';
 
 @Injectable()
 export class AnimalService implements ReadService<AnimalPrototype> {
@@ -14,22 +15,26 @@ export class AnimalService implements ReadService<AnimalPrototype> {
     }
 
     public retrieveRandom(): Observable<AnimalPrototype> {
-        return this.http.get<AnimalPrototype>(`${ environment.api }/animals/random`);
+        return this.http.get<AnimalPrototype>(`${ environment.api }/random`);
     }
 
     public retrieve(id: string): Observable<AnimalPrototype> {
-        return this.http.get<AnimalPrototype>(`${ environment.api }/animals/${ id }`);
+        return this.http.get<AnimalPrototype>(`${ environment.api }/${ id }`);
     }
 
     public retrieveAll(from: number): Observable<Array<AnimalPrototype>> {
-        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }/animals`, { from });
+        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }`, { from });
     }
 
     public addAnimals(animals: Array<AnimalPrototype>): Observable<Array<AnimalPrototype>> {
-        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }/animals/add`, { animals });
+        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }/add`, { animals });
     }
 
-    public reportData(animal: AnimalPrototype): void {
-        // return this.http.post<AnimalPrototype>(`${ environment.api }/animals/report`, { animal });
+    public reportData(animal: AnimalPrototype): Observable<Report> {
+        const report = {
+            commonName: animal.commonName,
+            animalId: animal.id
+        };
+        return this.http.post<Report>(`${ environment.api }/report`, report);
     }
 }
