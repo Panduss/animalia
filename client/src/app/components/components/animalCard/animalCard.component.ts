@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AnimalPrototype } from '../../../models/animal/prototype';
 import { AnimalService } from '../../../infrastructure/services/animals.service';
+import { Report } from '../../../models/report/prototype';
+import { ToastProvider } from '../../../infrastructure/providers/toast';
 
 @Component({
     selector: 'animal-card',
@@ -11,7 +13,8 @@ import { AnimalService } from '../../../infrastructure/services/animals.service'
 export class AnimalCardComponent {
 
     constructor(
-        private animalService: AnimalService
+        private animalService: AnimalService,
+        private toast: ToastProvider
     ) {
     }
 
@@ -24,7 +27,14 @@ export class AnimalCardComponent {
     }
 
     public reportData(animal: AnimalPrototype): void {
-        this.animalService.reportData(animal);
+        this.animalService.reportData(animal).subscribe((report: Report) => {
+            this.toast.presentToastWithOptions(
+                `Thank you for reporting ${ report.commonName }!`,
+                3000,
+                'success-toast',
+                'top'
+            );
+        });
     }
 
     public emitEvent() {
