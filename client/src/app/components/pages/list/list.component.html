@@ -9,25 +9,27 @@
     </ion-fab>
 
     <ion-card>
-        <ion-virtual-scroll [headerFn]="separateAnimalsAlphabetically" [items]="animals">
-
-            <ion-item-divider *virtualHeader="let letter" color="primary">
-                <strong>{{ letter }}</strong>
-            </ion-item-divider>
-            <ion-item *virtualItem="let animal" (click)=openModal(animal)>
-                <ion-avatar slot="start">
-                    <img [alt]='animal.commonName' src="{{animal.image}}">
-                </ion-avatar>
-                <ion-label>
-                    <h2 class="ion-text-capitalize">{{animal.commonName}}</h2>
-                    <p><i>{{ animal.scientificName }}</i></p>
-                </ion-label>
-            </ion-item>
-        </ion-virtual-scroll>
-
-        <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px">
-            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-            </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
+        <ng-container *ngIf="animals">
+            <ng-container *ngFor="let animal of animals">
+                <ion-item (click)=openModal(animal)>
+                    <ion-avatar slot="start">
+                        <img [alt]='animal.commonName' src="{{animal.image}}">
+                    </ion-avatar>
+                    <ion-label>
+                        <h2 class="ion-text-capitalize">{{animal.commonName}}</h2>
+                        <p><i>{{ animal.scientificName }}</i></p>
+                    </ion-label>
+                </ion-item>
+            </ng-container>
+            <ion-button expand="full" color="secondary" (click)="loadMore()" *ngIf="!loading">
+                Load more
+            </ion-button>
+            <div *ngIf="loading">
+                <div>
+                    <span> Fetching results </span>
+                    <ion-spinner name="lines"></ion-spinner>
+                </div>
+            </div>
+        </ng-container>
     </ion-card>
 </ion-content>

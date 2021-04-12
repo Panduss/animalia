@@ -15,6 +15,7 @@ export class ListPage implements OnInit {
     public showScrollToTopButton = false;
     public mappedAnimals: Array<any> = [];
     public from = 0;
+    public loading = false;
     private eventEmitter = new EventEmitter();
 
     public constructor(
@@ -29,25 +30,8 @@ export class ListPage implements OnInit {
     }
 
     public ngOnInit() {
+        this.loading = true;
         this.listAnimals(this.from);
-    }
-
-    public separateAnimalsAlphabetically(record: AnimalPrototype, recordIndex: number, records: Array<AnimalPrototype>) {
-        const currentLetter = record.commonName.charAt(0);
-        // return null if there are no more elements
-        if (!records[recordIndex + 1]) {
-            return null;
-        }
-        // return first letter for header
-        if (recordIndex === 0) {
-            return currentLetter.toUpperCase();
-        }
-        const previousLetter = records[recordIndex - 1].commonName.charAt(0);
-        // return new letter for the header when current letter is different
-        if (previousLetter !== currentLetter) {
-            return currentLetter.toUpperCase();
-        }
-        return null;
     }
 
     public logScrolling(event: CustomEvent): void {
@@ -59,14 +43,18 @@ export class ListPage implements OnInit {
     }
 
     public listAnimals(from: number): void {
-        this.animalService.retrieveAll(from).subscribe((animals) => {
-            this.animals = this.animals.concat(animals);
+        this.animalService.retrieveAll(from).subscribe((animals: Array<AnimalPrototype>) => {
+            this.loading = false;
+            const length = animals.length;
+            for (let i = 0; i < length; i++) {
+                this.animals.push(animals[i]); // this will work without blinks or jumps
+            }
         });
     }
 
-    public loadMore(event: any) {
+    public loadMore() {
+        this.loading = true;
         this.listAnimals(this.animals.length);
-        event.target.complete();
     }
 
     public async openModal(animal: AnimalPrototype): Promise<void> {
