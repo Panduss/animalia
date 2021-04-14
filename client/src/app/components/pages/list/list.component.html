@@ -2,6 +2,13 @@
              fullscreen
              padding
 >
+    <div class="container">
+        <div class="grid-row">
+            <div class="grid-item" *ngFor="let letter of alphabet; let indexArray = index;" (click)="setLetter(letter)">
+                <ion-button color="light" fill="solid" shape="full" class='letter-button'>{{letter}}</ion-button>
+            </div>
+        </div>
+    </div>
     <ion-fab *ngIf="showScrollToTopButton" horizontal="end" slot="fixed" vertical="bottom">
         <ion-fab-button (click)="scrollToTop()" color="primary">
             <ion-icon name="arrow-up"></ion-icon>
@@ -21,7 +28,7 @@
                     </ion-label>
                 </ion-item>
             </ng-container>
-            <ion-button expand="full" color="secondary" (click)="loadMore()" *ngIf="!loading">
+            <ion-button expand="full" color="secondary" (click)="loadMore()" *ngIf="!loading && !endOfResults">
                 Load more
             </ion-button>
             <div *ngIf="loading">

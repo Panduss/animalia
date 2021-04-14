@@ -22,8 +22,8 @@ export class AnimalService implements ReadService<AnimalPrototype> {
         return this.http.get<AnimalPrototype>(`${ environment.api }/${ id }`);
     }
 
-    public retrieveAll(from: number): Observable<Array<AnimalPrototype>> {
-        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }`, { from });
+    public retrieveAll(from: number, letter: string): Observable<Array<AnimalPrototype>> {
+        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }`, { from, letter });
     }
 
     public addAnimals(animals: Array<AnimalPrototype>): Observable<Array<AnimalPrototype>> {

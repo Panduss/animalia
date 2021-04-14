@@ -11,9 +11,14 @@ export async function getAnimal(name: string): Promise<Animal> {
     return await animalsRepository.findOne({ commonName: name });
 }
 
-export function getAllAnimals(from: string): Promise<Animal[]> {
-    return getRepository(Animal).createQueryBuilder('animal').orderBy('animal.commonName', 'ASC')
-    .skip(parseInt(from, 10)).take(20).getMany();
+export function getAllAnimals(from: string, letter: string): Promise<Animal[]> {
+    return getRepository(Animal)
+        .createQueryBuilder('animal')
+        .skip(parseInt(from, 10))
+        .take(20)
+        .where('animal.commonName like :name', { name: letter + '%' })
+        .orderBy('animal.commonName', 'ASC')
+        .getMany();
 }
 
 export async function getRandomAnimal(): Promise<Animal> {

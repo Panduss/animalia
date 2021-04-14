@@ -219,4 +219,27 @@
     --color-selected: var(--ion-color-primary);
     --ion-font-family: Cairo;
   }
+
+  .container {
+    max-width: 1335px;
+    margin: 0 auto 20px;
+  }
+
+  .grid-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .grid-item {
+    //flex-basis: 20%;
+    -ms-flex: auto;
+    position: relative;
+    padding: 2px;
+    box-sizing: border-box;
+  }
+  .letter-button {
+    width: 40px;
+    opacity: 0.7;
+  }
 }

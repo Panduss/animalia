@@ -3,6 +3,7 @@ import { AnimalPrototype } from '../../../models/animal/prototype';
 import { IonContent, ModalController } from '@ionic/angular';
 import { AnimalService } from '../../../infrastructure/services/animals.service';
 import { AnimalCardComponent } from '../../components/animalCard/animalCard.component';
+import { alphabet } from '../../../../assets/alphabet';
 
 @Component({
     selector: 'app-list',
@@ -15,7 +16,10 @@ export class ListPage implements OnInit {
     public showScrollToTopButton = false;
     public mappedAnimals: Array<any> = [];
     public from = 0;
+    public letter = 'A';
     public loading = false;
+    public endOfResults = false;
+    public alphabet = alphabet;
     private eventEmitter = new EventEmitter();
 
     public constructor(
@@ -31,7 +35,7 @@ export class ListPage implements OnInit {
 
     public ngOnInit() {
         this.loading = true;
-        this.listAnimals(this.from);
+        this.listAnimals();
     }
 
     public logScrolling(event: CustomEvent): void {
@@ -42,19 +46,24 @@ export class ListPage implements OnInit {
         this.content.scrollToTop(300);
     }
 
-    public listAnimals(from: number): void {
-        this.animalService.retrieveAll(from).subscribe((animals: Array<AnimalPrototype>) => {
-            this.loading = false;
+    public listAnimals(): void {
+        this.animalService.retrieveAll(this.from, this.letter).subscribe((animals: Array<AnimalPrototype>) => {
             const length = animals.length;
+            console.log(length);
+            if (length < 20) {
+                this.endOfResults = true;
+            }
             for (let i = 0; i < length; i++) {
                 this.animals.push(animals[i]); // this will work without blinks or jumps
             }
+            this.loading = false;
         });
     }
 
     public loadMore() {
         this.loading = true;
-        this.listAnimals(this.animals.length);
+        this.from = this.animals.length;
+        this.listAnimals();
     }
 
     public async openModal(animal: AnimalPrototype): Promise<void> {
@@ -64,5 +73,13 @@ export class ListPage implements OnInit {
         });
 
         await modal.present();
+    }
+
+    public setLetter(letter: string): void {
+        this.animals = [];
+        this.loading = true;
+        this.letter = letter;
+        this.from = 0;
+        this.listAnimals();
     }
 }

@@ -4,7 +4,7 @@ import Report from './entitites/report';
 
 interface AnimalsApiInterface {
     getRandomAnimal: () => Promise<Animal>;
-    getAllAnimals: (from: string) => Promise<Array<Animal>>;
+    getAllAnimals: (from: string, letter: string) => Promise<Array<Animal>>;
     getAnimal: (name: string) => Promise<Animal>;
     reportAnimal: (commonName: string, animalId: number) => Promise<Report>;
     // addAnimals: (animals: Array<Animal>) => Promise<Array<Animal>>;
