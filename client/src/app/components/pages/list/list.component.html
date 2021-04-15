@@ -2,7 +2,7 @@
              fullscreen
              padding
 >
-    <ion-card>
+    <ion-card class="list-form">
         <form [formGroup]="form" (ngSubmit)="search()">
             <mat-accordion>
                 <mat-expansion-panel #mep="matExpansionPanel">
@@ -10,7 +10,7 @@
                         <mat-panel-title>Filter results</mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-accordion>
-                        <ion-item>
+                        <ion-item class="ion-text-center">
                             <ion-avatar slot="start" class="ion-no-padding">
                                 <ion-icon color="medium" class="ion-no-padding" size="large"
                                           src="assets/icon/sparkles-outline.svg"></ion-icon>
@@ -47,7 +47,7 @@
                                 [disabled]="form.get('name').value.length !== 0"
                         >
                             <mat-expansion-panel-header class='header'>
-                                <mat-panel-title>List by Alphabet</mat-panel-title>
+                                <mat-panel-title>List by alphabet</mat-panel-title>
                             </mat-expansion-panel-header>
                             <div class="container">
                                 <div class="grid-row">
@@ -75,41 +75,29 @@
                                         <ion-button class="ion-no-padding icon-button"
                                                     [fill]="form.get('status').value === status.id ? 'outline' : 'clear'"
                                                     (click)="setValue(status.id, 'status')">
-                                            <ion-icon size="large" [src]="status.svg"></ion-icon>
+                                            <ion-icon class="status-icon" [src]="status.svg"></ion-icon>
                                         </ion-button>
                                     </div>
                                 </div>
                             </div>
                         </mat-expansion-panel>
                     </mat-accordion>
-                    <div class="container">
-                        <div class="grid-row">
-                            <div class="grid-item">
-                                <ion-button [disabled]="isEqual() || form.get('name').invalid" (click)="mep.expanded = !mep.expanded" type="submit">
-                                    Search
-                                </ion-button>
-                            </div>
-                        </div>
-                    </div>
+                    <ion-button expand="full" [disabled]="isEqual() || form.get('name').invalid" (click)="mep.expanded = !mep.expanded" type="submit">
+                        Search
+                    </ion-button>
                 </mat-expansion-panel>
             </mat-accordion>
         </form>
     </ion-card>
     <br>
-    <ion-fab *ngIf="showScrollToTopButton" horizontal="end" slot="fixed" vertical="bottom">
-        <ion-fab-button (click)="scrollToTop()" color="primary">
-            <ion-icon name="arrow-up"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-
-    <ion-card>
+    <ion-card class="ion-padding">
         <ng-container *ngIf="animals">
             <ng-container *ngFor="let animal of animals">
                 <ion-item (click)=openModal(animal)>
                     <ion-avatar slot="start">
                         <img [alt]='animal.commonName' src="{{animal.image}}">
                     </ion-avatar>
-                    <ion-label>
+                    <ion-label  text-wrap>
                         <h2 class="ion-text-capitalize">{{animal.commonName}}</h2>
                         <p><i>{{ animal.scientificName }}</i></p>
                     </ion-label>
@@ -125,5 +113,17 @@
                 </div>
             </div>
         </ng-container>
+        <ion-item *ngIf="animals && animals.length === 0">
+            <ion-label  text-wrap>
+                <h2 class="ion-text-justify">Couldn't find anything. Try changing your search criteria.</h2>
+            </ion-label>
+        </ion-item>
     </ion-card>
+
+    <div class="scroll-to-top-button">
+        <ion-button *ngIf="showScrollToTopButton" (click)="scrollToTop()" fill="clear" color="light" >
+            <ion-icon name="arrow-up"></ion-icon>
+            <ion-label>Scroll to top</ion-label>
+        </ion-button>
+    </div>
 </ion-content>
