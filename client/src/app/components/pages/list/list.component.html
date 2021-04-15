@@ -33,10 +33,10 @@
                                            formControlName="name"></ion-input>
                             </ion-item>
                             <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)" class="error-msg">
-                                <div *ngIf="form.get('name').errors.minlength" class="error-msg">
+                                <div *ngIf="form.get('name')?.errors.minlength" class="error-msg">
                                     Name must be at least 3 characters long.
                                 </div>
-                                <div *ngIf="form.get('name').errors.maxlength" class="error-msg">
+                                <div *ngIf="form.get('name')?.errors.maxlength" class="error-msg">
                                     Name is too long.
                                 </div>
                             </div>
