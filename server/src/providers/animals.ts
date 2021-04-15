@@ -79,7 +79,6 @@ export async function reportAnimal(commonName: string, animalId: number): Promis
 //             const newAnimal = {
 //                 commonName: animal.commonName,
 //                 scientificName: animal.scientificName,
-//                 classis: animal.classis,
 //                 status: animal.status,
 //                 image: animal.image,
 //                 description: animal.description

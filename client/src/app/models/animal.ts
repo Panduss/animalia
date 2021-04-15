@@ -1,6 +1,5 @@
 export interface Animal {
     id: string;
-    classis: string;
     status: string;
     commonName: string;
     scientificName: string;

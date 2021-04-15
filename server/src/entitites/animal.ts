@@ -17,10 +17,6 @@ export default class Animal extends BaseEntity {
 
     @IsString()
     @Column('text', { nullable: false })
-    public classis: string;
-
-    @IsString()
-    @Column('text', { nullable: false })
     public status: string;
 
     @IsString()
