@@ -2,6 +2,7 @@ import { getRepository } from 'typeorm';
 import Animal from '../entitites/animal';
 import { animals } from '../entitites/animals';
 import Report from '../entitites/report';
+import { AnimalQuery } from '../entitites/animalQuery';
 
 export async function getAnimal(name: string): Promise<Animal> {
     if (!name) {
@@ -11,9 +12,30 @@ export async function getAnimal(name: string): Promise<Animal> {
     return await animalsRepository.findOne({ commonName: name });
 }
 
-export function getAllAnimals(from: string): Promise<Animal[]> {
-    return getRepository(Animal).createQueryBuilder('animal').orderBy('animal.commonName', 'ASC')
-    .skip(parseInt(from, 10)).take(20).getMany();
+export function getAllAnimals(query: AnimalQuery): Promise<Animal[]> {
+
+    let request = getRepository(Animal)
+        .createQueryBuilder('animal')
+        .skip(query.from)
+        .take(20);
+
+    if (query.name) {
+        return request
+            .where('animal.commonName iLike :name', { name: '%' + query.name + '%' })
+            .orWhere('animal.scientificName iLike :name', { name: '%' + query.name + '%' })
+            .orderBy('animal.commonName', 'ASC')
+            .getMany();
+    } else if (query.letter !== 'All' && query.status === 'All') {
+        request = request.where('animal.commonName iLike :name', { name: query.letter + '%' });
+    } else if (query.status !== 'All' && query.letter === 'All') {
+        request = request.where('animal.status iLike :status', { status: query.status } );
+    } else if (query.status !== 'All' && query.letter !== 'All') {
+        request = request
+            .where('animal.commonName like :name', { name: query.letter + '%' })
+            .andWhere('animal.status like :status', { status: query.status } );
+    }
+
+    return request.orderBy('animal.commonName', 'ASC').getMany();
 }
 
 export async function getRandomAnimal(): Promise<Animal> {

@@ -1,13 +1,3 @@
-export interface AnimalPrototype {
-    id: string;
-    classis: string;
-    status: string;
-    commonName: string;
-    scientificName: string;
-    description?: string | null;
-    image?: string | null;
-}
-
 export interface WikiResponsePrototype {
     batchcomplete: string;
     query: {

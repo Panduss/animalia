@@ -18,7 +18,7 @@ router.post('/report', (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.post('/', (req: Request, res: Response, next: NextFunction) => {
-    AnimalsApi.getAllAnimals(req.body.from).then((result: Array<Animal>) => res.status(200).send(result)).catch(next);
+    AnimalsApi.getAllAnimals(req.body.query).then((result: Array<Animal>) => res.status(200).send(result)).catch(next);
 });
 
 // router.post('/add', (req: Request, res: Response, next: NextFunction) => {

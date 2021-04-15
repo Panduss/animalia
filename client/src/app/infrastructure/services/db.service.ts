@@ -1,5 +1,5 @@
 // import { Injectable } from '@angular/core';
-// import { AnimalPrototype, WikiPageResponsePrototype, WikiResponsePrototype } from '../../entitites/animal/prototype';
+// import { Animal, WikiPageResponsePrototype, WikiResponsePrototype } from '../../entitites/animal/wikipedia';
 // import { HttpClient } from '@angular/common/http';
 // import { map } from 'rxjs/operators';
 // import { Observable } from 'rxjs';
@@ -25,7 +25,7 @@
 //     ) {
 //     }
 //
-//     public getWikiData(animalPrototype: AnimalPrototype): Observable<AnimalPrototype> {
+//     public getWikiData(animalPrototype: Animal): Observable<Animal> {
 //         const query = `titles=${ animalPrototype.commonName.split(' ').join('_') }`;
 //         return this.http.get<WikiResponsePrototype>(
 //             `${ environment.wikipedia.baseUrl }${ query }${ environment.wikipedia.getThumbnail }`
@@ -38,7 +38,7 @@
 //         }));
 //     }
 //
-//     private sortForDatabase(animal: AnimalPrototype, page: WikiPageResponsePrototype): {animal: AnimalPrototype, type: UpdateType} {
+//     private sortForDatabase(animal: Animal, page: WikiPageResponsePrototype): {animal: Animal, type: UpdateType} {
 //
 //         const namesAreEqual = String(animal.commonName).valueOf() === String(animal.scientificName).valueOf();
 //         let updateType = UpdateType.all;
@@ -83,7 +83,7 @@
 //                 status: 'Least concern',
 //                 description: page.extract ? page.extract : null,
 //                 image: page.thumbnail && page.thumbnail.source ? page.thumbnail.source : null
-//             } as AnimalPrototype,
+//             } as Animal,
 //             type: updateType
 //         };
 //
@@ -91,7 +91,7 @@
 //         return update;
 //     }
 //
-//     private updateDatabase(data: {animal: AnimalPrototype, type: UpdateType}): void {
+//     private updateDatabase(data: {animal: Animal, type: UpdateType}): void {
 //
 //         switch (data.type) {
 //             case UpdateType.all:
@@ -113,7 +113,7 @@
 //         }
 //     }
 //
-//     private addAnimalToDatabase(animal: AnimalPrototype, path: string, updateType: UpdateType): void {
+//     private addAnimalToDatabase(animal: Animal, path: string, updateType: UpdateType): void {
 //         const id = animal.commonName.split(' ').join('_');
 //         console.log('hello?', id);
 //         const animalRef = this.afs.collection(path).doc(id);

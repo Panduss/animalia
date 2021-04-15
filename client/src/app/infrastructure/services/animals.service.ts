@@ -1,36 +1,37 @@
 import { Injectable } from '@angular/core';
-import { AnimalPrototype } from '../../models/animal/prototype';
+import { Animal } from '../../models/animal';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ReadService } from '../contracts/services/read';
-import { Report } from '../../models/report/prototype';
+import { Report } from '../../models/report';
+import { AnimalQuery } from '../../models/animalQuery';
 
 @Injectable()
-export class AnimalService implements ReadService<AnimalPrototype> {
+export class AnimalService implements ReadService<Animal> {
 
     public constructor(
         private http: HttpClient
     ) {
     }
 
-    public retrieveRandom(): Observable<AnimalPrototype> {
-        return this.http.get<AnimalPrototype>(`${ environment.api }/random`);
+    public retrieveRandom(): Observable<Animal> {
+        return this.http.get<Animal>(`${ environment.api }/random`);
     }
 
-    public retrieve(id: string): Observable<AnimalPrototype> {
-        return this.http.get<AnimalPrototype>(`${ environment.api }/${ id }`);
+    public retrieve(id: string): Observable<Animal> {
+        return this.http.get<Animal>(`${ environment.api }/${ id }`);
     }
 
-    public retrieveAll(from: number): Observable<Array<AnimalPrototype>> {
-        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }`, { from });
+    public retrieveAll(query: AnimalQuery): Observable<Array<Animal>> {
+        return this.http.post<Array<Animal>>(`${ environment.api }`, { query });
     }
 
-    public addAnimals(animals: Array<AnimalPrototype>): Observable<Array<AnimalPrototype>> {
-        return this.http.post<Array<AnimalPrototype>>(`${ environment.api }/add`, { animals });
+    public addAnimals(animals: Array<Animal>): Observable<Array<Animal>> {
+        return this.http.post<Array<Animal>>(`${ environment.api }/add`, { animals });
     }
 
-    public reportData(animal: AnimalPrototype): Observable<Report> {
+    public reportData(animal: Animal): Observable<Report> {
         const report = {
             commonName: animal.commonName,
             animalId: animal.id

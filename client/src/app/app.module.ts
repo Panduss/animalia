@@ -11,6 +11,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslationFactory } from './factory/translation';
 import { ToastProvider } from './infrastructure/providers/toast';
 import { TabModule } from './components/components/tab/tab.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { TabModule } from './components/components/tab/tab.module';
                     useClass: TranslationFactory
                 }
             }),
-        TabModule
+        TabModule,
+        BrowserAnimationsModule
     ],
     providers: [
         StatusBar,

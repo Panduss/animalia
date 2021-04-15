@@ -6,6 +6,9 @@ import { AnimalService } from '../../../infrastructure/services/animals.service'
 import { AnimalCardModule } from '../../components/animalCard/animalCard.module';
 import { ListPage } from './list.component';
 import { TabModule } from '../../components/tab/tab.module';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
 
 const routes: Routes = [
     {
@@ -20,7 +23,10 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         AnimalCardModule,
-        TabModule
+        TabModule,
+        MatExpansionModule,
+        MatDividerModule,
+        ReactiveFormsModule
     ],
     providers: [AnimalService],
     declarations: [ListPage],

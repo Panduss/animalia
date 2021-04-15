@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimalService } from '../../../infrastructure/services/animals.service';
-import { AnimalPrototype } from '../../../models/animal/prototype';
+import { Animal } from '../../../models/animal';
 
 @Component({
     selector: 'app-animal',
@@ -10,7 +10,7 @@ import { AnimalPrototype } from '../../../models/animal/prototype';
 
 export class AnimalPage implements OnInit {
 
-    public animal: AnimalPrototype | null = null;
+    public animal: Animal | null = null;
 
     public constructor(
         private zone: NgZone,
@@ -25,7 +25,7 @@ export class AnimalPage implements OnInit {
     }
 
     public getRandomAnimal(): void {
-        this.animalService.retrieveRandom().subscribe((animal: AnimalPrototype) => {
+        this.animalService.retrieveRandom().subscribe((animal: Animal) => {
             this.animal = animal;
         });
     }
