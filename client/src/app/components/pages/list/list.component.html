@@ -2,13 +2,100 @@
              fullscreen
              padding
 >
-    <div class="container">
-        <div class="grid-row">
-            <div class="grid-item" *ngFor="let letter of alphabet; let indexArray = index;" (click)="setLetter(letter)">
-                <ion-button color="light" fill="solid" shape="full" class='letter-button'>{{letter}}</ion-button>
-            </div>
-        </div>
-    </div>
+    <ion-card>
+        <form [formGroup]="form" (ngSubmit)="search()">
+            <mat-accordion>
+                <mat-expansion-panel #mep="matExpansionPanel">
+                    <mat-expansion-panel-header class='header'>
+                        <mat-panel-title>Filter results</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-accordion>
+                        <ion-item>
+                            <ion-avatar slot="start" class="ion-no-padding">
+                                <ion-icon color="medium" class="ion-no-padding" size="large"
+                                          src="assets/icon/sparkles-outline.svg"></ion-icon>
+                            </ion-avatar>
+                            <ion-label class="ion-text-justify" color="medium" text-wrap>
+                                <h5>You can search by name, or filter the animals by alphabet and/or conservation
+                                    status.</h5>
+                            </ion-label>
+                        </ion-item>
+                        <mat-expansion-panel
+                                (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false"
+                                [disabled]="form.get('letter').value !== 'All' || form.get('status').value !== 'All'"
+                        >
+                            <mat-expansion-panel-header class='header'>
+                                <mat-panel-title>Search by name</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Kinkajou" id="name" class="form-control"
+                                           formControlName="name"></ion-input>
+                            </ion-item>
+                            <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)" class="error-show">
+                                <div *ngIf="form.get('name').errors.minlength" class="error-show">
+                                    Name must be at least 3 characters long.
+                                </div>
+                                <div *ngIf="form.get('name').errors.maxlength" class="error-show">
+                                    Name is too long.
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel
+                                (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false"
+                                [disabled]="form.get('name').value.length !== 0"
+                        >
+                            <mat-expansion-panel-header class='header'>
+                                <mat-panel-title>List by Alphabet</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="container">
+                                <div class="grid-row">
+                                    <div class="grid-item" *ngFor="let letter of alphabet; let indexArray = index;"
+                                         (click)="setValue(letter, 'letter')">
+                                        <ion-button [color]="form.get('letter').value === letter ? 'primary' : 'light'"
+                                                    fill="solid" shape="full">
+                                            {{letter}}
+                                        </ion-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel
+                                (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false"
+                                [disabled]="form.get('name').value.length !== 0"
+                        >
+                            <mat-expansion-panel-header class='header'>
+                                <mat-panel-title>List by conservation status</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="container">
+                                <div class="grid-row">
+                                    <div class="grid-item" *ngFor="let status of statuses; let indexArray = index;">
+                                        <ion-button class="ion-no-padding icon-button"
+                                                    [fill]="form.get('status').value === status.id ? 'outline' : 'clear'"
+                                                    (click)="setValue(status.id, 'status')">
+                                            <ion-icon size="large" [src]="status.svg"></ion-icon>
+                                        </ion-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <div class="container">
+                        <div class="grid-row">
+                            <div class="grid-item">
+                                <ion-button [disabled]="isEqual() || form.get('name').invalid" (click)="mep.expanded = !mep.expanded" type="submit">
+                                    Search
+                                </ion-button>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </form>
+    </ion-card>
+    <br>
     <ion-fab *ngIf="showScrollToTopButton" horizontal="end" slot="fixed" vertical="bottom">
         <ion-fab-button (click)="scrollToTop()" color="primary">
             <ion-icon name="arrow-up"></ion-icon>

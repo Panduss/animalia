@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AnimalPrototype } from '../../../models/animal/prototype';
+import { Animal } from '../../../models/animal';
 import { AnimalService } from '../../../infrastructure/services/animals.service';
-import { Report } from '../../../models/report/prototype';
+import { Report } from '../../../models/report';
 import { ToastProvider } from '../../../infrastructure/providers/toast';
+import { statuses } from '../../../../assets/statuses';
 
 @Component({
     selector: 'animal-card',
@@ -11,21 +12,23 @@ import { ToastProvider } from '../../../infrastructure/providers/toast';
 
 export class AnimalCardComponent {
 
+    private statuses = statuses;
+
     constructor(
         private animalService: AnimalService,
         private toast: ToastProvider
     ) {
     }
 
-    @Input() public data: AnimalPrototype|null = null;
+    @Input() public data: Animal|null = null;
     @Input() public button = 'Back';
     @Output() event = new EventEmitter<boolean>();
 
-    public getImage(status: string): string {
-        return `assets/icon/${status.replace(' ', '_').toLowerCase()}.png`;
+    public getImage(name: string): string {
+        return statuses.find((item) => item.id === name)!.png;
     }
 
-    public reportData(animal: AnimalPrototype): void {
+    public reportData(animal: Animal): void {
         this.animalService.reportData(animal).subscribe((report: Report) => {
             this.toast.presentToastWithOptions(
                 `Thank you for reporting ${ report.commonName }!`,
