@@ -1,6 +1,6 @@
 <ion-content (ionScroll)="logScrolling($event)" [scrollEvents]="true"
              fullscreen
-             padding
+             class="ion-padding"
 >
     <ion-card class="list-form">
         <form [formGroup]="form" (ngSubmit)="search()">
@@ -15,16 +15,12 @@
                                 <ion-icon color="medium" class="ion-no-padding" size="large"
                                           src="assets/icon/sparkles-outline.svg"></ion-icon>
                             </ion-avatar>
-                            <ion-label class="ion-text-justify" color="medium" text-wrap>
+                            <ion-label class="ion-text-justify ion-text-wrap" color="medium">
                                 <h5>You can search by name, or filter the animals by alphabet and/or conservation
                                     status.</h5>
                             </ion-label>
                         </ion-item>
-                        <mat-expansion-panel
-                                (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false"
-                                [disabled]="form.get('letter').value !== 'All' || form.get('status').value !== 'All'"
-                        >
+                        <mat-expansion-panel [disabled]="form.get('letter')?.value !== 'All' || form.get('status')?.value !== 'All'" >
                             <mat-expansion-panel-header class='header'>
                                 <mat-panel-title>Search by name</mat-panel-title>
                             </mat-expansion-panel-header>
@@ -32,7 +28,7 @@
                                 <ion-input type="text" placeholder="Kinkajou" id="name" class="form-control"
                                            formControlName="name"></ion-input>
                             </ion-item>
-                            <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)" class="error-msg">
+                            <div *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)" class="error-msg">
                                 <div *ngIf="form.get('name')?.errors.minlength" class="error-msg">
                                     Name must be at least 3 characters long.
                                 </div>
@@ -41,11 +37,7 @@
                                 </div>
                             </div>
                         </mat-expansion-panel>
-                        <mat-expansion-panel
-                                (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false"
-                                [disabled]="form.get('name').value.length !== 0"
-                        >
+                        <mat-expansion-panel [disabled]="form.get('name')?.value.length !== 0">
                             <mat-expansion-panel-header class='header'>
                                 <mat-panel-title>List by alphabet</mat-panel-title>
                             </mat-expansion-panel-header>
@@ -53,7 +45,7 @@
                                 <div class="grid-row">
                                     <div class="grid-item" *ngFor="let letter of alphabet; let indexArray = index;"
                                          (click)="setValue(letter, 'letter')">
-                                        <ion-button [color]="form.get('letter').value === letter ? 'primary' : 'light'"
+                                        <ion-button [color]="form.get('letter')?.value === letter ? 'primary' : 'light'"
                                                     fill="solid" shape="full">
                                             {{letter}}
                                         </ion-button>
@@ -61,11 +53,7 @@
                                 </div>
                             </div>
                         </mat-expansion-panel>
-                        <mat-expansion-panel
-                                (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false"
-                                [disabled]="form.get('name').value.length !== 0"
-                        >
+                        <mat-expansion-panel [disabled]="form.get('name')?.value.length !== 0">
                             <mat-expansion-panel-header class='header'>
                                 <mat-panel-title>List by conservation status</mat-panel-title>
                             </mat-expansion-panel-header>
@@ -73,7 +61,7 @@
                                 <div class="grid-row">
                                     <div class="grid-item" *ngFor="let status of statuses; let indexArray = index;">
                                         <ion-button class="ion-no-padding icon-button"
-                                                    [fill]="form.get('status').value === status.id ? 'outline' : 'clear'"
+                                                    [fill]="form.get('status')?.value === status.id ? 'outline' : 'clear'"
                                                     (click)="setValue(status.id, 'status')">
                                             <ion-icon class="status-icon" slot="icon-only" size="large" [src]="status.svg"></ion-icon>
                                         </ion-button>
@@ -82,7 +70,7 @@
                             </div>
                         </mat-expansion-panel>
                     </mat-accordion>
-                    <ion-button expand="full" [disabled]="isEqual() || form.get('name').invalid" (click)="mep.expanded = !mep.expanded" type="submit">
+                    <ion-button expand="full" [disabled]="isEqual() || form.get('name')?.invalid" (click)="mep.expanded = !mep.expanded" type="submit">
                         Search
                     </ion-button>
                 </mat-expansion-panel>
@@ -97,7 +85,7 @@
                     <ion-avatar slot="start">
                         <img [alt]='animal.commonName' src="{{animal.image}}">
                     </ion-avatar>
-                    <ion-label  text-wrap>
+                    <ion-label class="ion-text-wrap">
                         <h2 class="ion-text-capitalize">{{animal.commonName}}</h2>
                         <p><i>{{ animal.scientificName }}</i></p>
                     </ion-label>
@@ -114,7 +102,7 @@
             </div>
         </ng-container>
         <ion-item *ngIf="animals && animals.length === 0">
-            <ion-label  text-wrap>
+            <ion-label  class="ion-text-wrap">
                 <h2 class="ion-text-justify">Couldn't find anything. Try changing your search criteria.</h2>
             </ion-label>
         </ion-item>
@@ -122,7 +110,7 @@
     <div class="scroll-to-top-button">
         <ion-button *ngIf="showScrollToTopButton" (click)="scrollToTop()" fill="clear" color="light" >
             <ion-icon name="arrow-up"></ion-icon>
-            <ion-label>Scroll to top</ion-label>
+            <ion-label>Scroll up</ion-label>
         </ion-button>
     </div>
 </ion-content>
