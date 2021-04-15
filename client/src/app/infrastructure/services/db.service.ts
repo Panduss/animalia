@@ -79,7 +79,6 @@
 //             animal: {
 //                 commonName: animal.commonName,
 //                 scientificName: animal.scientificName,
-//                 classis: 'mammalia',
 //                 status: 'Least concern',
 //                 description: page.extract ? page.extract : null,
 //                 image: page.thumbnail && page.thumbnail.source ? page.thumbnail.source : null
