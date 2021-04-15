@@ -32,11 +32,11 @@
                                 <ion-input type="text" placeholder="Kinkajou" id="name" class="form-control"
                                            formControlName="name"></ion-input>
                             </ion-item>
-                            <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)" class="error-show">
-                                <div *ngIf="form.get('name').errors.minlength" class="error-show">
+                            <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)" class="error-msg">
+                                <div *ngIf="form.get('name').errors.minlength" class="error-msg">
                                     Name must be at least 3 characters long.
                                 </div>
-                                <div *ngIf="form.get('name').errors.maxlength" class="error-show">
+                                <div *ngIf="form.get('name').errors.maxlength" class="error-msg">
                                     Name is too long.
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                         <ion-button class="ion-no-padding icon-button"
                                                     [fill]="form.get('status').value === status.id ? 'outline' : 'clear'"
                                                     (click)="setValue(status.id, 'status')">
-                                            <ion-icon class="status-icon" [src]="status.svg"></ion-icon>
+                                            <ion-icon class="status-icon" slot="icon-only" size="large" [src]="status.svg"></ion-icon>
                                         </ion-button>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                     </ion-label>
                 </ion-item>
             </ng-container>
-            <ion-button expand="full" color="secondary" (click)="loadMore()" *ngIf="!loading && !endOfResults">
+            <ion-button expand="full" color="primary" (click)="loadMore()" *ngIf="!loading && !endOfResults">
                 Load more
             </ion-button>
             <div *ngIf="loading">
@@ -119,7 +119,6 @@
             </ion-label>
         </ion-item>
     </ion-card>
-
     <div class="scroll-to-top-button">
         <ion-button *ngIf="showScrollToTopButton" (click)="scrollToTop()" fill="clear" color="light" >
             <ion-icon name="arrow-up"></ion-icon>

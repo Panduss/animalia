@@ -1,17 +1,19 @@
 <ion-content class="ion-fullscreen ion-padding ion-text-center" *ngIf="data">
     <img *ngIf="data.image" [src]="data.image" class="animal-image" [alt]="data.commonName"/>
     <ion-card class="text-center align-self-center">
-        <ion-item class="card-title">
-            <ion-avatar slot="start">
-                <img class="status-image" [src]="getImage(data.status)" [alt]="data.status">
-            </ion-avatar>
-            <ion-label text-wrap>
-                <h5><b>{{ data.commonName }}</b></h5>
-                <h5><i>{{ data.scientificName }}</i></h5>
-            </ion-label>
-        </ion-item>
-        <div class=animal-description>
-            <p>{{ data.description }}</p>
+        <div class="ion-padding">
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img class="status-image" [src]="getImage(data.status)" [alt]="data.status">
+                </ion-avatar>
+                <ion-label text-wrap>
+                    <h5><b>{{ data.commonName }}</b></h5>
+                    <h5><i>{{ data.scientificName }}</i></h5>
+                </ion-label>
+            </ion-item>
+            <div class=ion-text-justify>
+                <p>{{ data.description }}</p>
+            </div>
         </div>
         <ion-footer>
             <ion-row>
