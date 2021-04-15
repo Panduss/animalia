@@ -1,11 +1,15 @@
 <ion-tabs>
     <ion-tab-bar slot="bottom" color="light">
-        <ion-tab-button tab="animal">
-            <ion-label>Random animal</ion-label>
+        <ion-tab-button tab="animal" [class.active-tab]="isActive('animal')">
+            <ion-icon [color]="isActive('animal') ? 'primary' : 'medium'" class="ion-no-padding" [size]="isActive('animal') ? 'large' : 'small'"
+                      src="assets/icon/paw-outline.svg"></ion-icon>
+            <ion-label>Random</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="list">
-            <ion-label>Animal A-Z</ion-label>
+         <ion-tab-button tab="list" [class.active-tab]="isActive('list')">
+             <ion-icon [color]="isActive('list') ? 'primary' : 'medium'" class="ion-no-padding" [size]="isActive('list') ? 'large' : 'small'"
+                       src="assets/icon/paw-outline.svg"></ion-icon>
+            <ion-label>List</ion-label>
         </ion-tab-button>
     </ion-tab-bar>
 </ion-tabs>

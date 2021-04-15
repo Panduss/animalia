@@ -142,6 +142,34 @@
     --background-size: cover;
     color: var(--ion-color-medium);
     width: 100% !important;
+
+  }
+  .list-form {
+    border-radius: 30px;
+  }
+
+  // ** TABS ** //
+  ion-tabs{
+    background: url(../assets/imgs/background.jpg) no-repeat center center fixed;
+    --height: 76px;
+  }
+
+  ion-tab-bar {
+    border-radius: 30px;
+    width: 80%;
+    max-width: 300px;
+    margin: 10px auto !important;
+  }
+
+  ion-tab-button {
+    color: var(--ion-color-dark);
+    font-family: 'Cairo', sans-serif;
+    --background: var(--ion-color-light-rgb);
+  }
+
+  .active-tab {
+    color: var(--ion-color-primary);
+    font-size: 12px !important;
   }
 
   // ** CARD ** //
@@ -165,9 +193,16 @@
     }
   }
 
+
+
   .animal-description {
     padding: 0 20px;
     text-align: justify;
+  }
+
+  .status-icon {
+    width: 40px !important;
+    height: 40px !important;
   }
 
   .status-image {
@@ -220,15 +255,15 @@
     --background: var(--ion-color-success-contrast);
   }
 
-  ion-tab-button {
-    --color: var(--ion-color-medium);
-    --color-selected: var(--ion-color-primary);
-    --ion-font-family: Cairo;
-  }
-
   .container {
     max-width: 1335px;
     margin: 0 auto 20px;
+  }
+
+  .scroll-to-top-button {
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
   }
 
   .grid-row {
@@ -251,6 +286,8 @@
   .icon-button {
     --border-radius: 50px;
     --border-width: 3px;
+    --width: 40px !important;
+    --height: 40px !important;
   }
 
   ion-input {
@@ -268,12 +305,12 @@
   }
 
   mat-expansion-panel-header {
-    font-family: 'Cairo', serif !important;
+    font-family: 'Cairo', sans-serif !important;
     background: none !important;
   }
 
   mat-expansion-panel-header:hover  {
-    font-family: 'Cairo', serif !important;
+    font-family: 'Cairo', sans-serif !important;
     background: none !important;
   }
 
