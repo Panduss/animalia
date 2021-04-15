@@ -64,7 +64,6 @@ export class ListPage implements OnInit {
 
     public setValue(item: string, field: string): void {
         this.form.patchValue({[field]: item});
-        this.form.markAsTouched();
     }
 
     public listAnimals(query: AnimalQuery): void {
@@ -101,7 +100,7 @@ export class ListPage implements OnInit {
         this.showScrollToTopButton = event.detail.currentY > 0;
     }
 
-    public scrollToTop(): void {
-        this.content.scrollToTop(300);
+    public async scrollToTop(): Promise<void> {
+        await this.content.scrollToTop(300);
     }
 }
