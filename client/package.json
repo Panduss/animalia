@@ -54,7 +54,7 @@
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
     "@ionic/angular-toolkit": "~1.5.1",
-    "@ionic/cli": "^6.13.1",
+    "@ionic/cli": "^6.20.1",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/jwt-decode": "^2.2.1",
